@@ -164,14 +164,6 @@
       </div>
     </section>
 
-    <!-- ===== En números ===== -->
-    <section class="mt-16" aria-labelledby="metrics-heading">
-      <h2 id="metrics-heading" class="font-mono text-xs font-medium uppercase tracking-[0.2em] text-ink-400">En números</h2>
-      <dl id="metrics" class="mt-6 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
-        <!-- Render dinámico desde data/metrics.json -->
-      </dl>
-    </section>
-
     <!-- ===== Proyectos ===== -->
     <section id="proyectos" class="mt-16 scroll-mt-10" aria-labelledby="projects-heading">
       <h2 id="projects-heading" class="font-mono text-xs font-medium uppercase tracking-[0.2em] text-ink-400">Proyectos</h2>
@@ -287,11 +279,12 @@
     <section id="actividad" class="mt-16 scroll-mt-10" aria-labelledby="posts-heading">
       <div class="flex flex-wrap items-baseline justify-between gap-2">
         <h2 id="posts-heading" class="font-mono text-xs font-medium uppercase tracking-[0.2em] text-ink-400">Última actividad</h2>
-        <a href="https://x.com/Facutom_" target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-ink-400 hover:text-ink-100">Ver más en X →</a>
+        <span class="font-mono text-xs text-ink-400">feed de X + LinkedIn</span>
       </div>
+      <p class="mt-3 text-base leading-relaxed text-ink-400">Un solo feed con lo último que publico en X y LinkedIn.</p>
 
       <div id="posts" class="mt-6 grid gap-4 sm:grid-cols-2">
-        <!-- Render dinámico desde data/posts.json -->
+        <!-- Render dinámico desde data/posts.json (lo actualiza .github/workflows/update-feed.yml) -->
       </div>
     </section>
 
@@ -359,22 +352,6 @@
     };
     const LABELS = { x: 'X / Twitter', linkedin: 'LinkedIn' };
 
-    async function renderMetrics() {
-      const el = document.getElementById('metrics');
-      if (!el) return;
-      try {
-        const { metrics } = await loadJSON('data/metrics.json');
-        el.innerHTML = metrics.map((m) => `
-          <div>
-            <dt class="font-mono text-3xl font-medium tracking-tight text-ink-50 sm:text-4xl">${esc(m.value)}</dt>
-            <dd class="mt-2 text-sm leading-snug text-ink-200">${esc(m.label)}</dd>
-            ${m.hint ? `<dd class="mt-1 font-mono text-xs text-ink-400">${esc(m.hint)}</dd>` : ''}
-          </div>`).join('');
-      } catch {
-        el.innerHTML = '<p class="col-span-full text-sm text-ink-400">No se pudieron cargar las métricas.</p>';
-      }
-    }
-
     async function renderPosts(limit) {
       const el = document.getElementById('posts');
       if (!el) return;
@@ -406,7 +383,6 @@
       }
     }
 
-    renderMetrics();
     renderPosts(5);
   </script>
 </body>

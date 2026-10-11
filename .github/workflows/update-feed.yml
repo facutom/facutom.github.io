@@ -1,0 +1,42 @@
+name: Update social feed
+
+# Junta los feeds de X y LinkedIn (configurados en feed.config.json) en data/posts.json.
+# Se puede correr por horario (cada 6 horas) o manualmente desde la pestaña Actions.
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-feed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install parser
+        run: npm i --no-save fast-xml-parser
+
+      - name: Build unified feed
+        run: node scripts/build-feed.mjs
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/posts.json
+          if git diff --staged --quiet; then
+            echo "Sin cambios en el feed."
+          else
+            git commit -m "chore: update social feed"
+            git push
+          fi

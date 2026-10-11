@@ -1,0 +1,14 @@
+{
+  "_comment": "Fuentes del feed unificado (X + LinkedIn). Completá 'url' con el feed RSS/Atom o JSON de cada red; el workflow .github/workflows/update-feed.yml los junta en data/posts.json. Para obtener las URLs, ver README o usar un generador de RSS (ej. rss.app). Dejá el [TODO] para omitir esa fuente.",
+  "maxItems": 30,
+  "sources": [
+    {
+      "network": "x",
+      "url": "[TODO: URL del feed RSS/JSON de X para @Facutom_]"
+    },
+    {
+      "network": "linkedin",
+      "url": "[TODO: URL del feed RSS/JSON de LinkedIn para facundotomasella]"
+    }
+  ]
+}
