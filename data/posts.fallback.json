@@ -1,33 +1,33 @@
 {
-  "_comment": "Respaldo estático del feed. Se usa automáticamente si data/posts.json falla o no tiene publicaciones (por ejemplo, si las fuentes RSS no están configuradas o están caídas). Podés editarlo a mano con tus publicaciones o tus posts destacados.",
+  "_comment": "Respaldo estático del feed de X (@Facutom_). Se usa automáticamente si data/posts.json falla o no tiene publicaciones (por ejemplo, si la fuente RSS está caída). Podés editarlo a mano con tus posts o tus destacados.",
   "posts": [
     {
       "network": "x",
-      "date": "2026-10-08",
+      "date": "2026-06-08",
+      "text": "Armé mi huevsite en huevsite.io — el portfolio para builders 🇦🇷 👉 huevsite.io/facutom",
+      "url": "https://x.com/Facutom_/status/2063969428497129742"
+    },
+    {
+      "network": "x",
+      "date": "2026-05-30",
+      "text": "Shippeando hoy en @crecimientoar en la @monad_dev, fueron 6 horas armando producto, equipo, y vendiendo la idea. #hackaton",
+      "url": "https://x.com/Facutom_/status/2060857379931967738"
+    },
+    {
+      "network": "x",
+      "date": "2026-05-30",
+      "text": "Hoy en la hackaton Blitz de @monad_dev en @crecimientoar armamos MediPass: el pasaporte médico descentralizado para nómadas digitales.",
+      "url": "https://x.com/Facutom_/status/2060823407084621956"
+    },
+    {
+      "network": "x",
+      "date": "2026-05-15",
       "text": "Estabilicé el pipeline de TradingChango: reintentos y deduplicación en la captura. Los precios históricos ya quedan consistentes entre corridas. [EJEMPLO]",
       "url": "https://x.com/Facutom_"
     },
     {
-      "network": "linkedin",
-      "date": "2026-10-05",
-      "text": "En EscalaFast automatizamos la respuesta a leads por WhatsApp en menos de 60 segundos. Dejamos de perder consultas por demora. [EJEMPLO]",
-      "url": "https://www.linkedin.com/in/facundotomasella/"
-    },
-    {
       "network": "x",
-      "date": "2026-09-29",
-      "text": "Playwright + Supabase para scrapear y normalizar precios de supermercados. Lo difícil no es scrapear, es normalizar. [EJEMPLO]",
-      "url": "https://x.com/Facutom_"
-    },
-    {
-      "network": "linkedin",
-      "date": "2026-09-22",
-      "text": "Un buen SLA es parte del producto, no una promesa de venta. 5 días hábiles para entregar una automatización. [EJEMPLO]",
-      "url": "https://www.linkedin.com/in/facundotomasella/"
-    },
-    {
-      "network": "x",
-      "date": "2026-09-15",
+      "date": "2026-04-20",
       "text": "Construir en público: acá voy a ir documentando lo que construyo y aprendo. [EJEMPLO]",
       "url": "https://x.com/Facutom_"
     }

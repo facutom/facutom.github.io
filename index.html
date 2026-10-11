@@ -279,11 +279,11 @@
     <section id="actividad" class="mt-16 scroll-mt-10" aria-labelledby="posts-heading">
       <div class="flex flex-wrap items-baseline justify-between gap-2">
         <h2 id="posts-heading" class="font-mono text-xs font-medium uppercase tracking-[0.2em] text-ink-400">Última actividad</h2>
-        <span class="font-mono text-xs text-ink-400">feed de X + LinkedIn</span>
+        <a href="https://x.com/Facutom_" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-mono text-xs text-ink-400 hover:text-ink-100">@Facutom_<svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
       </div>
-      <p class="mt-3 text-base leading-relaxed text-ink-400">Un solo feed con lo último que publico en X y LinkedIn.</p>
+      <p class="mt-3 text-base leading-relaxed text-ink-400">Un solo feed con lo último que publico en X.</p>
 
-      <div id="posts" class="mt-6 grid gap-4 sm:grid-cols-2">
+      <div id="posts" class="mt-7 border-l border-ink-700/80 pl-5">
         <!-- Render dinámico desde data/posts.json (lo actualiza .github/workflows/update-feed.yml) -->
       </div>
     </section>
@@ -347,10 +347,9 @@
     }
 
     const ICONS = {
-      x: '<svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>',
-      linkedin: '<svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065Zm1.782 13.019H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/></svg>',
+      x: '<svg class="h-3 w-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>',
     };
-    const LABELS = { x: 'X / Twitter', linkedin: 'LinkedIn' };
+    const LABELS = { x: 'X / Twitter' };
 
     // Intenta el feed vivo; si falla o está vacío, usa el JSON de respaldo estático.
     async function loadPosts() {
@@ -375,20 +374,20 @@
           const icon = ICONS[net] || '';
           const label = LABELS[net] || esc(p.network);
           return `
-          <a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer"
-             class="group flex flex-col rounded-2xl border border-ink-700 bg-ink-800 p-5 transition-colors hover:border-ink-600 hover:bg-ink-900">
-            <div class="flex items-center justify-between gap-3">
-              <span class="inline-flex items-center gap-1.5 rounded-full border border-ink-600 bg-ink-900 px-2.5 py-0.5 font-mono text-[0.7rem] font-medium uppercase tracking-wide text-ink-200">
-                ${icon}${label}
-              </span>
-              <time class="font-mono text-xs text-ink-400" datetime="${esc(p.date)}">${esc(formatDate(p.date))}</time>
+          <article class="relative pb-6 last:pb-0">
+            <span class="absolute -left-6 top-1.5 h-2 w-2 rounded-full bg-accent-500 ring-4 ring-ink-950" aria-hidden="true"></span>
+            <div class="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs">
+              <span class="inline-flex items-center gap-1.5 font-medium text-ink-200">${icon}${label}</span>
+              <span class="text-ink-700" aria-hidden="true">·</span>
+              <time class="text-ink-400" datetime="${esc(p.date)}">${esc(formatDate(p.date))}</time>
             </div>
-            <p class="mt-3 flex-1 text-[0.95rem] leading-relaxed text-ink-200">${esc(p.text)}</p>
-            <span class="mt-3 inline-flex items-center gap-1 font-mono text-xs font-medium text-accent-400 group-hover:text-accent-300">
+            <p class="mt-1.5 text-[0.95rem] leading-relaxed text-ink-200">${esc(p.text)}</p>
+            <a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer"
+               class="mt-1.5 inline-flex items-center gap-1 font-mono text-xs font-medium text-accent-400 hover:text-accent-300">
               Ver publicación
-              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
-            </span>
-          </a>`;
+              <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+          </article>`;
         }).join('');
       } catch {
         el.innerHTML = '<p class="col-span-full text-sm text-ink-400">No se pudieron cargar las publicaciones.</p>';
