@@ -23,10 +23,10 @@
         extend: {
           fontFamily: { sans: ['Inter','system-ui','-apple-system','BlinkMacSystemFont','sans-serif'] },
           colors: {
-            background: 'hsl(0 0% 3.9%)',
-            foreground: 'hsl(0 0% 98%)',
-            'muted-foreground': 'hsl(0 0% 63.9%)',
-            card: 'hsl(0 0% 6.9%)',
+            background: '#141414',
+            foreground: '#a5a5a5',
+            'muted-foreground': '#a5a5a5',
+            card: '#222222',
           },
         },
       },
@@ -64,6 +64,12 @@
             </div>
           </div>
 
+          <!-- Journey -->
+          <section class="flex flex-col gap-6">
+            <p class="text-xs uppercase tracking-wider text-muted-foreground opacity-60">Mi camino</p>
+            <div id="posts" class="flex gap-4 overflow-x-auto -mx-6 px-6 pb-2 sm:mx-0 sm:px-0 sm:pb-0 sm:grid sm:grid-cols-3 sm:overflow-visible"></div>
+          </section>
+
           <!-- My Startups -->
           <section class="flex flex-col gap-6">
             <p class="text-xs uppercase tracking-wider text-muted-foreground opacity-60">Mis proyectos</p>
@@ -91,12 +97,6 @@
                 </div>
               </a>
             </div>
-          </section>
-
-          <!-- Journey -->
-          <section class="flex flex-col gap-6">
-            <p class="text-xs uppercase tracking-wider text-muted-foreground opacity-60">Mi camino</p>
-            <div id="posts" class="flex gap-4 overflow-x-auto -mx-6 px-6 pb-2 sm:mx-0 sm:px-0 sm:pb-0 sm:grid sm:grid-cols-3 sm:overflow-visible"></div>
           </section>
         </main>
 
