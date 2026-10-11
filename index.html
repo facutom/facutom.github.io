@@ -219,7 +219,7 @@
               </div>
               <div>
                 <dt class="font-medium text-ink-50">Estado</dt>
-                <dd class="mt-0.5 leading-relaxed text-ink-200">Servicio B2B activo · SLA de entrega de automatizaciones en <span class="font-medium text-ink-50">5 días hábiles</span>.</dd>
+                <dd class="mt-0.5 leading-relaxed text-ink-200">Servicio B2B activo.</dd>
               </div>
             </dl>
           </div>
@@ -280,7 +280,6 @@
         <h2 id="posts-heading" class="text-xl font-semibold tracking-tight text-ink-50 sm:text-2xl">Última actividad</h2>
         <a href="https://x.com/Facutom_" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-mono text-xs text-ink-400 hover:text-ink-100">@Facutom_<svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
       </div>
-      <p class="mt-3 text-base leading-relaxed text-ink-400">Mi actualidad en redes sociales.</p>
 
       <div id="posts" class="mt-7 border-l border-ink-700/80 pl-5">
         <!-- Render dinámico desde data/posts.json (lo actualiza .github/workflows/update-feed.yml) -->
@@ -304,10 +303,9 @@
           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
           Enviar email
         </a>
-        <a href="https://x.com/Facutom_" target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center gap-2 rounded-lg border border-ink-600 px-5 py-2.5 text-sm font-semibold text-ink-100 transition-colors hover:border-ink-500 hover:bg-ink-800">
+        <a href="https://x.com/Facutom_" target="_blank" rel="noopener noreferrer" aria-label="X"
+           class="inline-flex items-center justify-center rounded-lg border border-ink-600 p-2.5 text-ink-100 transition-colors hover:border-ink-500 hover:bg-ink-800">
           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
-          X
         </a>
         <a href="https://www.linkedin.com/in/facundotomasella/" target="_blank" rel="noopener noreferrer"
            class="inline-flex items-center gap-2 rounded-lg border border-ink-600 px-5 py-2.5 text-sm font-semibold text-ink-100 transition-colors hover:border-ink-500 hover:bg-ink-800">
@@ -348,7 +346,6 @@
     const ICONS = {
       x: '<svg class="h-3 w-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>',
     };
-    const LABELS = { x: 'X' };
 
     // Intenta el feed vivo; si falla o está vacío, usa el JSON de respaldo estático.
     async function loadPosts() {
@@ -371,17 +368,15 @@
         el.innerHTML = items.map((p, i) => {
           const net = (p.network || '').toLowerCase();
           const icon = ICONS[net] || '';
-          const label = LABELS[net] || esc(p.network);
           return `
           <a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer"
              class="feed-item group relative block -mx-2 rounded-xl px-2 pb-6 transition-colors duration-200 last:pb-2 hover:bg-ink-900"
              style="animation-delay:${i * 70}ms">
             <span class="absolute -left-6 top-2 h-2 w-2 rounded-full bg-accent-500 ring-4 ring-ink-950 transition-all duration-200 group-hover:scale-125 group-hover:bg-accent-400 group-hover:ring-ink-900" aria-hidden="true"></span>
             <div class="flex items-center justify-between gap-3">
-              <div class="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs">
-                <span class="inline-flex items-center gap-1.5 font-medium text-ink-200 transition-colors group-hover:text-ink-50">${icon}${label}</span>
-                <span class="text-ink-700" aria-hidden="true">·</span>
-                <time class="text-ink-400" datetime="${esc(p.date)}">${esc(formatDate(p.date))}</time>
+              <div class="flex items-center gap-2 font-mono text-xs">
+                <span class="inline-flex items-center text-ink-200 transition-colors group-hover:text-ink-50">${icon}</span>
+                <time class="text-ink-400 transition-colors group-hover:text-ink-100" datetime="${esc(p.date)}">${esc(formatDate(p.date))}</time>
               </div>
               <svg class="h-3.5 w-3.5 shrink-0 translate-x-1 text-accent-400 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
             </div>
