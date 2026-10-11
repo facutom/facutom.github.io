@@ -171,7 +171,7 @@
           const img = p.image ? esc(p.image) : '';
           const thumb = img ? `<img src="${img}" alt="" class="absolute -inset-px w-[calc(100%+2px)] h-[calc(100%+2px)] object-cover brightness-[.8]" loading="lazy"/>` : `<div class="absolute inset-0 bg-card" aria-hidden="true"></div>`;
           const views = formatViews(p.views);
-          const badge = net ? `<div class="absolute bottom-2 left-2 flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-sm px-2 py-0.5"><span class="text-white">${ICONS[net] || '<span class="text-xs">' + esc(net) + '</span>'}</span><span class="text-xs text-white" data-views="${esc(p.url)}">${views}</span><span class="text-xs text-white/70" data-views-label>visualizaciones</span></div>` : '';
+          const badge = net ? `<div class="absolute bottom-2 left-2 flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-sm px-2 py-0.5"><span class="text-white">${ICONS[net] || '<span class="text-xs">' + esc(net) + '</span>'}</span><span class="text-xs text-white" data-views="${esc(p.url)}">${views}</span><span class="text-xs text-white" data-views-label>visualizaciones</span></div>` : '';
           return `<div class="flex flex-col gap-2 w-64 flex-shrink-0 sm:w-auto"><a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" class="relative block w-full overflow-hidden rounded-2xl bg-card hover:opacity-80 transition-opacity" style="padding-top:56.25%">${thumb}${badge}</a><p class="text-xs text-muted-foreground truncate">${esc(p.text)}</p></div>`;
         }).join('');
       } catch {}
