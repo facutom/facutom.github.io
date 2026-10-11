@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://facutom.github.io/sitemap.xml

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Feed RSS del build log.
+  [TODO] Este archivo es estático: cada vez que agregues una entrada en data/log.json,
+  duplicá el bloque <item> acá (con fecha en formato RFC 822) para mantenerlo sincronizado.
+  Si preferís automatizarlo, se puede generar desde data/log.json con un pequeño script.
+-->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Build log — Facundo Tomasella</title>
+    <link>https://facutom.github.io/log/</link>
+    <description>Notas cortas y fechadas de lo que construyo y aprendo, en público.</description>
+    <language>es-ar</language>
+    <atom:link href="https://facutom.github.io/feed.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+      <title>[TODO: título de la entrada más reciente]</title>
+      <link>https://facutom.github.io/log/</link>
+      <guid>https://facutom.github.io/log/#[TODO-slug]</guid>
+      <pubDate>[TODO: Wed, 10 Oct 2026 12:00:00 -0300]</pubDate>
+      <description>[TODO: 2-3 líneas de la entrada.]</description>
+    </item>
+
+    <item>
+      <title>Rediseño la web personal y la vuelco a casos de estudio</title>
+      <link>https://facutom.github.io/log/</link>
+      <guid>https://facutom.github.io/log/#rediseno-web</guid>
+      <pubDate>Sat, 03 Oct 2026 12:00:00 -0300</pubDate>
+      <description>Reescribí el portfolio para que muestre problema, solución y stack de cada proyecto, con una sección de métricas y un build log editable desde JSON.</description>
+    </item>
+
+    <item>
+      <title>Endurezco el pipeline de datos de TradingChango</title>
+      <link>https://facutom.github.io/log/</link>
+      <guid>https://facutom.github.io/log/#pipeline-tradingchango</guid>
+      <pubDate>Sat, 26 Sep 2026 12:00:00 -0300</pubDate>
+      <description>Agregué manejo de reintentos y deduplicación en la captura de precios para que los precios históricos queden consistentes entre corridas.</description>
+    </item>
+
+  </channel>
+</rss>
