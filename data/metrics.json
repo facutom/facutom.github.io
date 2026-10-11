@@ -1,25 +1,25 @@
 {
-  "_comment": "Editá los valores o agregá/quitar métricas. 'value' es el número grande, 'label' la descripción y 'hint' una aclaración corta opcional. Todo dato sin confirmar debe quedar como [TODO: ...].",
+  "_comment": "Métricas de 'En números'. value = número destacado, label = descripción, hint = contexto corto (opcional). Editá libremente.",
   "metrics": [
     {
-      "value": "[TODO: N]",
-      "label": "productos trackeados en TradingChango",
-      "hint": "actualizado [TODO: mes/año]"
+      "value": "+50.000",
+      "label": "precios procesados e indexados",
+      "hint": "TradingChango"
     },
     {
-      "value": "[TODO: N]",
-      "label": "usuarios activos",
-      "hint": "[TODO: mensuales o totales]"
+      "value": "99.9%",
+      "label": "uptime en servicios e infraestructura",
+      "hint": "producción"
     },
     {
-      "value": "[TODO: N]%",
-      "label": "uptime de los servicios en producción",
-      "hint": "últimos 90 días"
+      "value": "< 60s",
+      "label": "respuesta automatizada a leads comerciales",
+      "hint": "EscalaFast"
     },
     {
-      "value": "[TODO: N]",
-      "label": "automatizaciones desplegadas",
-      "hint": "para clientes y proyectos propios"
+      "value": "5 días",
+      "label": "de SLA de entrega de automatizaciones",
+      "hint": "hábiles"
     }
   ]
 }
