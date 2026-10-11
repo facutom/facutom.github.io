@@ -82,6 +82,13 @@ function parseXml(xml, network, base) {
   return items;
 }
 
+// Quita la atribución final que agregan los feeds tipo rss.app: "— Nombre (@handle) fecha".
+function cleanText(t = '') {
+  return String(t)
+    .replace(/\s*[—–-]\s*[^—–]*\(@[\w]+\)[^—–]*$/, '')
+    .trim();
+}
+
 function parseJson(data, network) {
   const arr =
     (Array.isArray(data) && data) ||
@@ -91,8 +98,8 @@ function parseJson(data, network) {
     [];
   return arr.map((it) => ({
     network,
-    date: toISO(it.date ?? it.pubDate ?? it.isoDate ?? it.published ?? it.created_at),
-    text: toText(it.description ?? it.content ?? it.text ?? it.title ?? it.summary ?? ''),
+    date: toISO(it.date_published ?? it.date ?? it.pubDate ?? it.isoDate ?? it.published ?? it.created_at),
+    text: cleanText(toText(it.content_text ?? it.text ?? it.description ?? it.content ?? it.summary ?? it.title ?? '')),
     url: it.url ?? it.link ?? it.permalink ?? '',
   }));
 }
@@ -107,7 +114,13 @@ async function fetchSource(source) {
   const type = res.headers.get('content-type') || '';
   const trimmed = body.trim();
   const looksJson = type.includes('json') || trimmed.startsWith('{') || trimmed.startsWith('[');
-  return looksJson ? parseJson(JSON.parse(trimmed), network) : parseXml(trimmed, network, url);
+  const items = looksJson ? parseJson(JSON.parse(trimmed), network) : parseXml(trimmed, network, url);
+  // Filtro opcional por URL (p. ej. para quedarse solo con los posts propios y excluir retuits).
+  if (source.filter) {
+    const re = new RegExp(source.filter, 'i');
+    return items.filter((i) => re.test(i.url));
+  }
+  return items;
 }
 
 async function loadFallback() {

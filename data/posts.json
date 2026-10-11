@@ -1,37 +1,25 @@
 {
   "_comment": "Generado automáticamente por scripts/build-feed.mjs (workflow update-feed.yml). No editar a mano: se sobrescribe.",
-  "generatedAt": "2026-10-11T03:07:37.471Z",
-  "origin": "fallback",
+  "generatedAt": "2026-10-11T03:20:29.703Z",
+  "origin": "live",
   "posts": [
     {
       "network": "x",
-      "date": "2026-10-08",
-      "text": "Estabilicé el pipeline de TradingChango: reintentos y deduplicación en la captura. Los precios históricos ya quedan consistentes entre corridas. [EJEMPLO]",
-      "url": "https://x.com/Facutom_"
-    },
-    {
-      "network": "linkedin",
-      "date": "2026-10-05",
-      "text": "En EscalaFast automatizamos la respuesta a leads por WhatsApp en menos de 60 segundos. Dejamos de perder consultas por demora. [EJEMPLO]",
-      "url": "https://www.linkedin.com/in/facundotomasella/"
+      "date": "2026-06-08",
+      "text": "Armé mi huevsite en huevsite.io — el portfolio para builders 🇦🇷 👉 huevsite.io/facutom",
+      "url": "https://x.com/Facutom_/status/2063969428497129742"
     },
     {
       "network": "x",
-      "date": "2026-09-29",
-      "text": "Playwright + Supabase para scrapear y normalizar precios de supermercados. Lo difícil no es scrapear, es normalizar. [EJEMPLO]",
-      "url": "https://x.com/Facutom_"
-    },
-    {
-      "network": "linkedin",
-      "date": "2026-09-22",
-      "text": "Un buen SLA es parte del producto, no una promesa de venta. 5 días hábiles para entregar una automatización. [EJEMPLO]",
-      "url": "https://www.linkedin.com/in/facundotomasella/"
+      "date": "2026-05-30",
+      "text": "Shippeando hoy en @crecimientoar en la @monad_dev, fueron 6 horas armando producto, equipo, y vendiendo la idea. #hackaton",
+      "url": "https://x.com/Facutom_/status/2060857379931967738"
     },
     {
       "network": "x",
-      "date": "2026-09-15",
-      "text": "Construir en público: acá voy a ir documentando lo que construyo y aprendo. [EJEMPLO]",
-      "url": "https://x.com/Facutom_"
+      "date": "2026-05-30",
+      "text": "Hoy en la hackaton Blitz de @monad_dev en @crecimientoar armamos MediPass: el pasaporte médico descentralizado para nómadas digitales. medipass-phi.vercel.app/",
+      "url": "https://x.com/Facutom_/status/2060823407084621956"
     }
   ]
 }
