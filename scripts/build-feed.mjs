@@ -63,6 +63,7 @@ function parseXml(xml, network, base) {
       date: toISO(it.pubDate ?? it['dc:date'] ?? it.date),
       text: toText(it.description ?? it['content:encoded'] ?? it.title ?? ''),
       url: link,
+      image: extractFirstImage(it['content:encoded'] ?? it.description ?? ''),
     });
   }
 
@@ -76,13 +77,19 @@ function parseXml(xml, network, base) {
       date: toISO(e.published ?? e.updated),
       text: toText(e.summary?.['#text'] ?? e.summary ?? e.content?.['#text'] ?? e.content ?? e.title ?? ''),
       url: normalizeUrl(alt?.['@_href'], base),
+      image: extractFirstImage(e.content?.['#text'] ?? e.content ?? e.summary ?? ''),
     });
   }
 
   return items;
 }
 
-// Quita la atribución final que agregan los feeds tipo rss.app: "— Nombre (@handle) fecha".
+function extractFirstImage(html = '') {
+  if (!html) return '';
+  const m = String(html).match(/<img[^>]+src=["']([^"']+)["']/i);
+  return m ? m[1] : '';
+}
+
 function cleanText(t = '') {
   return String(t)
     .replace(/\s*[—–-]\s*[^—–]*\(@[\w]+\)[^—–]*$/, '')
@@ -101,6 +108,7 @@ function parseJson(data, network) {
     date: toISO(it.date_published ?? it.date ?? it.pubDate ?? it.isoDate ?? it.published ?? it.created_at),
     text: cleanText(toText(it.content_text ?? it.text ?? it.description ?? it.content ?? it.summary ?? it.title ?? '')),
     url: it.url ?? it.link ?? it.permalink ?? '',
+    image: it.image ?? extractFirstImage(it.content_html ?? it.content ?? it.description ?? ''),
   }));
 }
 
