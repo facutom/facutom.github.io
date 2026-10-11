@@ -47,7 +47,8 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
+tailwind.config = {
+      darkMode: ['class'],
       theme: {
         extend: {
           fontFamily: {
@@ -55,6 +56,11 @@
             mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
           },
           colors: {
+            background: 'hsl(var(--background))',
+            foreground: 'hsl(var(--foreground))',
+            muted: 'hsl(var(--muted))',
+            'muted-foreground': 'hsl(var(--muted-foreground))',
+            card: 'hsl(var(--card))',
             ink: {
               950: '#0b0e13',
               900: '#0f1319',
@@ -76,7 +82,7 @@
             },
           },
           maxWidth: {
-            content: '46rem',
+            content: '52rem',
           },
         },
       },
@@ -96,6 +102,13 @@
       :focus-visible {
         outline: 2px solid #34d399;
         outline-offset: 2px;
+      }
+      :root {
+        --background: 0 0% 3.9%;
+        --foreground: 0 0% 98%;
+        --muted: 0 0% 14.9%;
+        --muted-foreground: 0 0% 63.9%;
+        --card: 0 0% 6.9%;
       }
     }
 
@@ -122,7 +135,7 @@
   </style>
 </head>
 
-<body data-base="./" class="bg-ink-950 text-ink-200 font-sans antialiased min-h-screen">
+<body data-base="./" class="bg-background text-foreground font-sans antialiased min-h-screen">
 
   <div class="mx-auto max-w-3xl px-6 py-16 sm:py-24">
 
@@ -135,8 +148,8 @@
         class="h-20 w-20 shrink-0 rounded-full border border-ink-700 object-cover sm:h-24 sm:w-24" />
 
       <div class="min-w-0">
-        <h1 class="text-3xl font-semibold tracking-tight text-ink-50 sm:text-4xl">Facundo Tomasella</h1>
-        <p class="mt-2 flex items-center justify-center gap-1.5 text-base text-ink-400">
+        <h1 class="text-md text-white font-semibold">Facundo Tomasella</h1>
+        <p class="text-md text-muted-foreground">Solopreneur</p>
           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z" />
             <circle cx="12" cy="10" r="3" />
@@ -163,11 +176,11 @@
 
     <!-- ===== Propuesta de valor ===== -->
 <section class="mt-12 text-center" aria-labelledby="value-heading">
-      <h2 id="value-heading" class="text-2xl font-semibold leading-snug tracking-tight text-ink-50 sm:text-[1.75rem]">
+      <h2 id="value-heading" class="text-2xl font-semibold leading-snug tracking-tight text-white sm:text-[1.75rem]">
         Construyo negocios con <span class="text-accent-400">tecnología</span>.
       </h2>
 
-      <p class="mx-auto mt-5 max-w-2xl text-[1.0625rem] leading-relaxed text-ink-200 sm:text-lg">
+      <p class="mx-auto mt-5 max-w-2xl text-[1.0625rem] leading-relaxed text-muted-foreground sm:text-lg">
         Desarrollo productos, pruebo ideas y busco formas de convertir <span class="font-medium text-ink-50">problemas reales</span> en <span class="font-medium text-ink-50">oportunidades comerciales</span>. <span class="font-medium text-ink-50">Comparto</span> lo que construyo, lo que aprendo y lo que funciona en el camino.
       </p>
     </section>
@@ -176,7 +189,7 @@
     <section id="proyectos" class="mt-16 scroll-mt-10" aria-labelledby="projects-heading">
       <div class="flex items-center gap-4">
         <span class="h-px flex-1 bg-ink-800" aria-hidden="true"></span>
-        <h2 id="projects-heading" class="shrink-0 text-xl font-semibold tracking-tight text-ink-50 sm:text-2xl">Mis proyectos</h2>
+        <h2 id="projects-heading" class="shrink-0 text-xl font-semibold tracking-tight text-white sm:text-2xl">Mis proyectos</h2>
         <span class="h-px flex-1 bg-ink-800" aria-hidden="true"></span>
       </div>
 
@@ -186,8 +199,8 @@
           <div class="flex items-start gap-3">
             <img src="assets/escalafast.png" alt="EscalaFast" width="24" height="24" class="mt-0.5 h-6 w-6 shrink-0 rounded-md object-cover" loading="lazy" />
             <div class="min-w-0">
-              <h3 class="text-base font-semibold text-ink-50">EscalaFast</h3>
-              <p class="mt-1 text-sm leading-relaxed text-ink-400">Automatizaciones productizadas para PyMEs: integrando formularios, CRM y WhatsApp Business API para responder leads en segundos.</p>
+              <h3 class="text-base font-semibold text-white">EscalaFast</h3>
+              <p class="mt-1 text-sm leading-relaxed text-muted-foreground">Automatizaciones productizadas para PyMEs: integrando formularios, CRM y WhatsApp Business API para responder leads en segundos.</p>
             </div>
           </div>
         </a>
@@ -197,8 +210,8 @@
           <div class="flex items-start gap-3">
             <img src="assets/tradingchango.png" alt="TradingChango" width="24" height="24" class="mt-0.5 h-6 w-6 shrink-0 rounded-md object-cover" loading="lazy" />
             <div class="min-w-0">
-              <h3 class="text-base font-semibold text-ink-50">TradingChango</h3>
-              <p class="mt-1 text-sm leading-relaxed text-ink-400">Comparador de precios de supermercados en Argentina con +50.000 ítems indexados, scraping automatizado y datos históricos.</p>
+              <h3 class="text-base font-semibold text-white">TradingChango</h3>
+              <p class="mt-1 text-sm leading-relaxed text-muted-foreground">Comparador de precios de supermercados en Argentina con +50.000 ítems indexados, scraping automatizado y datos históricos.</p>
             </div>
           </div>
         </a>
@@ -209,7 +222,7 @@
     <section id="actividad" class="mt-16 scroll-mt-10" aria-labelledby="posts-heading">
       <div class="flex items-center gap-4">
         <span class="h-px flex-1 bg-ink-800" aria-hidden="true"></span>
-        <h2 id="posts-heading" class="shrink-0 text-xl font-semibold tracking-tight text-ink-50 sm:text-2xl">Mi camino</h2>
+        <h2 id="posts-heading" class="shrink-0 text-xl font-semibold tracking-tight text-white sm:text-2xl">Mi camino</h2>
         <span class="h-px flex-1 bg-ink-800" aria-hidden="true"></span>
       </div>
       <p class="mt-2 text-center font-mono text-xs text-ink-400"><a href="https://x.com/Facutom_" target="_blank" rel="noopener noreferrer" class="hover:text-ink-100">@Facutom_ →</a></p>
@@ -223,11 +236,11 @@
 <section id="contacto" class="mt-16 scroll-mt-10" aria-labelledby="contact-heading">
       <div class="flex items-center gap-4">
         <span class="h-px flex-1 bg-ink-800" aria-hidden="true"></span>
-        <h2 id="contact-heading" class="shrink-0 text-xl font-semibold tracking-tight text-ink-50 sm:text-2xl">Hablemos</h2>
+        <h2 id="contact-heading" class="shrink-0 text-xl font-semibold tracking-tight text-white sm:text-2xl">Hablemos</h2>
         <span class="h-px flex-1 bg-ink-800" aria-hidden="true"></span>
       </div>
       <div class="mt-6 text-center">
-        <p class="mx-auto max-w-2xl text-base leading-relaxed text-ink-200">
+        <p class="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground">
           Si algo de lo que construyo te resulta útil, o querés intercambiar ideas sobre negocios, tecnología o producto, escribime.
         </p>
 
@@ -246,7 +259,7 @@
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
           </a>
           <a href="https://www.linkedin.com/in/facundotomasella/" target="_blank" rel="noopener noreferrer"
-             class="inline-flex items-center gap-2 rounded-lg border border-ink-600 px-5 py-2.5 text-sm font-semibold text-ink-100 transition-colors hover:border-ink-500 hover:bg-ink-800">
+             class="inline-flex items-center gap-2 rounded-lg border border-ink-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:border-ink-500 hover:bg-ink-900">
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065Zm1.782 13.019H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/></svg>
             LinkedIn
           </a>
@@ -256,7 +269,7 @@
 
     <!-- ===== Pie ===== -->
     <footer class="mt-16 border-t border-ink-700 pt-8">
-      <p class="text-xs text-ink-400">© <span id="year">2026</span> Facundo Tomasella · Buenos Aires, Argentina</p>
+      <p class="text-xs text-muted-foreground">© <span id="year">2026</span> Facundo Tomasella · Buenos Aires, Argentina</p>
     </footer>
 
   </div>
@@ -315,7 +328,7 @@
             <a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" class="group relative block w-full overflow-hidden rounded-xl bg-ink-900" style="padding-top:56.25%">
               ${thumb}${badge}
             </a>
-            <p class="truncate text-xs text-ink-400">${esc(p.text)}</p>
+            <p class="truncate text-xs text-muted-foreground">${esc(p.text)}</p>
           </div>`;
         }).join('');
       } catch {
