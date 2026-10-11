@@ -1,6 +1,6 @@
 {
   "_comment": "Generado automáticamente por scripts/build-feed.mjs (workflow update-feed.yml). No editar a mano: se sobrescribe.",
-  "generatedAt": "2026-10-11T15:00:00.000Z",
+  "generatedAt": "2026-10-11T15:40:03.371Z",
   "origin": "live",
   "posts": [
     {
@@ -20,7 +20,7 @@
     {
       "network": "x",
       "date": "2026-05-30",
-      "text": "Hoy en la hackaton Blitz de @monad_dev en @crecimientoar armamos MediPass: el pasaporte médico descentralizado para nómadas digitales.",
+      "text": "Hoy en la hackaton Blitz de @monad_dev en @crecimientoar armamos MediPass: el pasaporte médico descentralizado para nómadas digitales. medipass-phi.vercel.app/",
       "url": "https://x.com/Facutom_/status/2060823407084621956",
       "image": "https://pbs.twimg.com/media/HJmDS8MWMAAk0pq.jpg"
     }
