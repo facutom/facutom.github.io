@@ -3,17 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Facundo Tomasella — Productos digitales, datos y automatización</title>
-  <meta name="description" content="Facundo Tomasella — Construyo productos digitales end-to-end combinando Python, SQL, Supabase, Postgres y React/TypeScript. Buenos Aires, Argentina." />
+
+  <title>Facundo Tomasella — Productos de datos, automatización y MVPs</title>
+  <meta name="description" content="Ayudo a empresas a operar mejor con productos de datos end-to-end: automatización de procesos, pipelines de datos y MVPs. Python, SQL, Postgres/Supabase y React/TypeScript. Desde Buenos Aires." />
   <meta name="author" content="Facundo Tomasella" />
   <meta name="theme-color" content="#f5f6f8" />
+  <link rel="canonical" href="https://facutom.github.io/" />
 
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Facundo Tomasella" />
-  <meta property="og:description" content="Productos digitales end-to-end, datos y automatización. Buenos Aires, Argentina." />
+  <meta property="og:site_name" content="Facundo Tomasella" />
+  <meta property="og:url" content="https://facutom.github.io/" />
+  <meta property="og:title" content="Facundo Tomasella — Productos de datos, automatización y MVPs" />
+  <meta property="og:description" content="Automatización de procesos, pipelines de datos y MVPs de producto. Productos de datos end-to-end desde Buenos Aires." />
+  <meta property="og:image" content="https://facutom.github.io/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Facundo Tomasella — Productos de datos, automatización y MVPs" />
   <meta property="og:locale" content="es_AR" />
-  <meta name="twitter:card" content="summary" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@Facutom_" />
   <meta name="twitter:creator" content="@Facutom_" />
+  <meta name="twitter:title" content="Facundo Tomasella — Productos de datos, automatización y MVPs" />
+  <meta name="twitter:description" content="Automatización de procesos, pipelines de datos y MVPs de producto. Productos de datos end-to-end desde Buenos Aires." />
+  <meta name="twitter:image" content="https://facutom.github.io/assets/og-image.png" />
+
+  <!-- Idioma: estructura lista para versión en inglés -->
+  <link rel="alternate" hreflang="es" href="https://facutom.github.io/" />
+  <link rel="alternate" hreflang="x-default" href="https://facutom.github.io/" />
+  <!-- [TODO] Cuando exista la versión en inglés, descomentar:
+  <link rel="alternate" hreflang="en" href="https://facutom.github.io/en/" /> -->
+
+  <!-- Feed del build log -->
+  <link rel="alternate" type="application/rss+xml" title="Build log de Facundo Tomasella" href="https://facutom.github.io/feed.xml" />
 
   <link rel="icon" type="image/png" href="https://github.com/facutom.png" />
   <link rel="apple-touch-icon" href="https://github.com/facutom.png" />
@@ -40,9 +64,15 @@
               700: '#3b414c',
               900: '#1d222b',
             },
+            accent: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              600: '#2563eb',
+              700: '#1d4ed8',
+            },
           },
           maxWidth: {
-            content: '46rem',
+            content: '52rem',
           },
         },
       },
@@ -56,194 +86,344 @@
         text-rendering: optimizeLegibility;
       }
       ::selection {
-        background: #1d222b;
-        color: #f5f6f8;
+        background: #2563eb;
+        color: #ffffff;
       }
-    }
-    @layer utilities {
-      .ring-focus:focus-visible {
-        outline: none;
-        box-shadow: 0 0 0 2px #f5f6f8, 0 0 0 4px #69707d;
+      :focus-visible {
+        outline: 2px solid #2563eb;
+        outline-offset: 2px;
       }
     }
   </style>
 </head>
 
-<body class="bg-ink-50 text-ink-500 font-sans antialiased min-h-screen">
+<body data-base="./" class="bg-ink-50 text-ink-700 font-sans antialiased min-h-screen">
 
-  <div class="mx-auto max-w-content px-6 py-16 sm:py-24">
+  <!-- ===== Nav ===== -->
+  <header class="border-b border-ink-200/70 bg-ink-50/80 backdrop-blur">
+    <div class="mx-auto flex max-w-content items-center gap-4 px-6 py-4">
+      <a href="#top" class="flex items-center gap-3">
+        <img src="https://github.com/facutom.png" alt="Foto de Facundo Tomasella"
+             width="36" height="36" class="h-9 w-9 rounded-full border border-ink-200 object-cover" />
+        <span class="text-sm font-semibold text-ink-900">Facundo Tomasella</span>
+      </a>
 
-    <!-- Header -->
-    <header class="flex items-center gap-5">
-      <div class="relative shrink-0">
-        <div class="h-20 w-20 sm:h-28 sm:w-28 rounded-full bg-ink-100 border border-ink-200 flex items-center justify-center overflow-hidden">
-          <img
-            src="https://github.com/facutom.png"
-            alt="Facundo Tomasella"
-            width="112" height="112" loading="lazy"
-            class="h-full w-full object-cover"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-          <span class="hidden h-full w-full items-center justify-center text-xl font-semibold text-ink-700">FT</span>
-        </div>
-        <span class="absolute -bottom-0.5 -right-0.5 h-4 w-4 rounded-full bg-emerald-500 border-2 border-ink-50" title="Disponible para conectar"></span>
-      </div>
+      <nav class="ml-auto hidden items-center gap-6 text-sm md:flex" aria-label="Secciones">
+        <a href="#proyectos" class="text-ink-500 transition-colors hover:text-ink-900">Proyectos</a>
+        <a href="#servicios" class="text-ink-500 transition-colors hover:text-ink-900">Servicios</a>
+        <a href="#ahora" class="text-ink-500 transition-colors hover:text-ink-900">Ahora</a>
+        <a href="./log/" class="text-ink-500 transition-colors hover:text-ink-900">Build log</a>
+        <a href="#contacto" class="font-medium text-accent-700 transition-colors hover:text-accent-600">Contacto</a>
+      </nav>
 
-      <div class="min-w-0">
-        <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight text-ink-900">Facundo Tomasella</h1>
-        <p class="mt-1.5 flex items-center gap-1.5 text-base text-ink-500">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z" />
-            <circle cx="12" cy="10" r="3" />
-          </svg>
-          Buenos Aires, Argentina
-        </p>
-      </div>
-
-      <nav class="ml-auto hidden sm:flex items-center gap-2" aria-label="Redes sociales">
-        <button type="button" data-share aria-label="Compartir página"
-           class="ring-focus rounded-lg p-2 text-ink-500 hover:text-ink-900 hover:bg-ink-100 transition-colors">
-          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="18" cy="5" r="3" />
-            <circle cx="6" cy="12" r="3" />
-            <circle cx="18" cy="19" r="3" />
-            <path d="m8.59 13.51 6.83 3.98M15.41 6.51 8.59 10.49" />
-          </svg>
+      <div class="ml-auto flex items-center gap-1 md:ml-0">
+        <button type="button" data-lang-toggle aria-label="Cambiar idioma (ES/EN)"
+          class="rounded-md px-2 py-1 text-xs font-medium text-ink-500 transition-colors hover:bg-ink-100 hover:text-ink-900">
+          ES · <span class="text-ink-300">EN</span>
         </button>
         <a href="https://x.com/Facutom_" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"
-           class="ring-focus rounded-lg p-2 text-ink-500 hover:text-ink-900 hover:bg-ink-100 transition-colors">
-          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/>
-          </svg>
+           class="rounded-md p-2 text-ink-500 transition-colors hover:bg-ink-100 hover:text-ink-900">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
         </a>
         <a href="https://www.linkedin.com/in/facundotomasella/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-           class="ring-focus rounded-lg p-2 text-ink-500 hover:text-ink-900 hover:bg-ink-100 transition-colors">
-          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065Zm1.782 13.019H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/>
-          </svg>
+           class="rounded-md p-2 text-ink-500 transition-colors hover:bg-ink-100 hover:text-ink-900">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065Zm1.782 13.019H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/></svg>
         </a>
-      </nav>
-    </header>
+      </div>
+    </div>
+  </header>
 
-    <!-- Bio -->
-    <section class="mt-12" aria-labelledby="bio-heading">
-      <h2 id="bio-heading" class="sr-only">Extracto profesional</h2>
-      <p class="text-[1.0625rem] sm:text-lg leading-relaxed text-ink-700">
-        Me apasiona comprender cómo funcionan los negocios y cómo la tecnología puede ayudarlos a crecer, escalar y operar de forma más eficiente. Construyo productos digitales <span class="text-ink-900 font-medium">end-to-end</span> combinando <span class="text-ink-900 font-medium">Python y SQL</span> para la captura y procesamiento de información, <span class="text-ink-900 font-medium">Supabase y Postgres</span> para la infraestructura, y <span class="text-ink-900 font-medium">React/TypeScript</span> para la experiencia de usuario. Disfruto convertir ideas en sistemas funcionales, optimizar procesos y desarrollar soluciones que generen impacto medible para personas y organizaciones.
+  <main id="top" class="mx-auto max-w-content px-6">
+
+    <!-- ===== Hero ===== -->
+    <section class="pt-16 pb-14 sm:pt-24 sm:pb-20" aria-labelledby="hero-heading">
+      <p class="inline-flex items-center gap-2 rounded-full border border-ink-200 bg-white px-3 py-1 text-xs font-medium text-ink-500">
+        <span class="h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span>
+        Disponible para proyectos y colaboraciones
       </p>
 
-      <div class="mt-6 flex flex-wrap gap-x-5 gap-y-2 sm:hidden" aria-label="Redes sociales">
-        <a href="https://x.com/Facutom_" target="_blank" rel="noopener noreferrer" class="ring-focus inline-flex items-center gap-2 text-sm text-ink-500 hover:text-ink-900 transition-colors">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
-          X / Twitter
+      <h1 id="hero-heading" class="mt-6 text-4xl font-semibold leading-[1.1] tracking-tight text-ink-900 sm:text-5xl">
+        Convierto procesos manuales y datos dispersos en <span class="text-accent-700">productos que le ahorran tiempo y plata a tu negocio</span>.
+      </h1>
+      <!-- [TODO] Headline en inglés (estructura lista para /en). Ajustar cuando traduzcas la versión completa: -->
+      <p class="mt-3 text-base italic text-ink-500" lang="en">
+        I turn manual processes and scattered data into products that save your business time and money.
+      </p>
+
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-700">
+        Diseño y construyo productos de datos <span class="font-medium text-ink-900">end-to-end</span>: captura y procesamiento con <span class="font-medium text-ink-900">Python y SQL</span>, infraestructura con <span class="font-medium text-ink-900">Postgres/Supabase</span> y experiencia con <span class="font-medium text-ink-900">React/TypeScript</span>. Del scraping al dashboard.
+      </p>
+
+      <!-- Línea de prueba (métrica destacada) -->
+      <p class="mt-6 text-sm text-ink-500">
+        <span class="font-semibold text-ink-900">TradingChango</span> ·
+        <span class="text-ink-700">[TODO: N productos trackeados]</span> ·
+        <span class="text-ink-700">[TODO: N usuarios]</span>
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a href="[TODO: link de calendario]"
+           class="inline-flex items-center gap-2 rounded-lg bg-accent-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-700">
+          Agendar llamada
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a href="https://www.linkedin.com/in/facundotomasella/" target="_blank" rel="noopener noreferrer" class="ring-focus inline-flex items-center gap-2 text-sm text-ink-500 hover:text-ink-900 transition-colors">
+        <a href="mailto:[TODO: tu@email.com]"
+           class="inline-flex items-center gap-2 rounded-lg border border-ink-200 bg-white px-5 py-2.5 text-sm font-semibold text-ink-700 transition-colors hover:border-ink-300 hover:text-ink-900">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          Escribime por email
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== Métricas ===== -->
+    <section class="border-y border-ink-200 py-10" aria-labelledby="metrics-heading">
+      <h2 id="metrics-heading" class="sr-only">Métricas</h2>
+      <dl id="metrics" class="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
+        <!-- Render dinámico desde data/metrics.json -->
+      </dl>
+    </section>
+
+    <!-- ===== Proyectos (casos de estudio) ===== -->
+    <section id="proyectos" class="scroll-mt-20 pt-16 pb-16" aria-labelledby="projects-heading">
+      <h2 id="projects-heading" class="text-xs font-medium uppercase tracking-[0.2em] text-ink-500">Proyectos</h2>
+      <p class="mt-3 max-w-2xl text-base text-ink-500">Cada caso incluye el problema, qué construí, el stack y el resultado.</p>
+
+      <div class="mt-8 space-y-6">
+
+        <!-- TradingChango -->
+        <article class="overflow-hidden rounded-2xl border border-ink-200 bg-white">
+          <a href="https://tradingchango.com" target="_blank" rel="noopener noreferrer" class="block">
+            <div class="aspect-[1200/630] overflow-hidden bg-ink-100">
+              <img src="assets/tradingchango.png" alt="Vista previa de TradingChango, comparador de precios"
+                   width="1200" height="630" loading="lazy" decoding="async"
+                   class="h-full w-full object-cover object-top" />
+            </div>
+          </a>
+          <div class="p-6 sm:p-7">
+            <div class="flex items-start justify-between gap-4">
+              <h3 class="text-xl font-semibold text-ink-900">TradingChango</h3>
+              <a href="https://tradingchango.com" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-accent-700 hover:text-accent-600">
+                tradingchango.com
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+
+            <dl class="mt-5 space-y-4 text-sm">
+              <div>
+                <dt class="font-medium text-ink-900">Problema</dt>
+                <dd class="mt-1 leading-relaxed text-ink-500">Comparar precios entre supermercados en Argentina es lento y disperso: cada sitio tiene su propio formato y no existe una vista unificada para seguir precios en el tiempo.</dd>
+              </div>
+              <div>
+                <dt class="font-medium text-ink-900">Qué construí</dt>
+                <dd class="mt-1 leading-relaxed text-ink-500">Una plataforma que captura precios de múltiples supermercados, los normaliza y los expone en una comparación en tiempo real, con histórico para seguir la evolución. [TODO: sumar 1 detalle técnico distintivo]</dd>
+              </div>
+              <div>
+                <dt class="font-medium text-ink-900">Stack</dt>
+                <dd class="mt-2 flex flex-wrap gap-2">
+                  <span class="rounded-md border border-ink-200 bg-ink-50 px-2.5 py-1 text-xs text-ink-700">Python</span>
+                  <span class="rounded-md border border-ink-200 bg-ink-50 px-2.5 py-1 text-xs text-ink-700">Supabase / Postgres</span>
+                  <span class="rounded-md border border-ink-200 bg-ink-50 px-2.5 py-1 text-xs text-ink-700">React</span>
+                </dd>
+              </div>
+              <div>
+                <dt class="font-medium text-ink-900">Resultado</dt>
+                <dd class="mt-1 leading-relaxed text-ink-500">[TODO: métrica — ej: X productos, X usuarios, Y% de ahorro de tiempo o precisión de precios]</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- EscalaFast -->
+        <article class="overflow-hidden rounded-2xl border border-ink-200 bg-white">
+          <a href="https://escalafast.com" target="_blank" rel="noopener noreferrer" class="block">
+            <div class="aspect-[1200/630] overflow-hidden bg-ink-100">
+              <img src="assets/escalafast.png" alt="Vista previa de EscalaFast, automatización para empresas"
+                   width="1200" height="630" loading="lazy" decoding="async"
+                   class="h-full w-full object-cover object-top" />
+            </div>
+          </a>
+          <div class="p-6 sm:p-7">
+            <div class="flex items-start justify-between gap-4">
+              <h3 class="text-xl font-semibold text-ink-900">EscalaFast</h3>
+              <a href="https://escalafast.com" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-accent-700 hover:text-accent-600">
+                escalafast.com
+                <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+
+            <dl class="mt-5 space-y-4 text-sm">
+              <div>
+                <dt class="font-medium text-ink-900">Problema</dt>
+                <dd class="mt-1 leading-relaxed text-ink-500">Empresas atrapadas en tareas manuales y herramientas desconectadas: procesos que no escalan sin sumar estructura y costos.</dd>
+              </div>
+              <div>
+                <dt class="font-medium text-ink-900">Qué construí</dt>
+                <dd class="mt-1 leading-relaxed text-ink-500">Automatizaciones a medida que reducen tareas repetitivas y conectan las herramientas que la empresa ya usa, más un diagnóstico inicial para priorizar qué automatizar primero. [TODO: describir un caso concreto]</dd>
+              </div>
+              <div>
+                <dt class="font-medium text-ink-900">Stack</dt>
+                <dd class="mt-2 flex flex-wrap gap-2">
+                  <span class="rounded-md border border-ink-200 bg-ink-50 px-2.5 py-1 text-xs text-ink-700">[TODO: stack]</span>
+                  <span class="rounded-md border border-ink-200 bg-ink-50 px-2.5 py-1 text-xs text-ink-700">[TODO: ej. n8n / APIs]</span>
+                </dd>
+              </div>
+              <div>
+                <dt class="font-medium text-ink-900">Resultado</dt>
+                <dd class="mt-1 leading-relaxed text-ink-500">[TODO: métrica — ej: X horas/semana ahorradas por cliente, X procesos automatizados]</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== Servicios ===== -->
+    <section id="servicios" class="scroll-mt-20 border-t border-ink-200 pt-16 pb-16" aria-labelledby="services-heading">
+      <h2 id="services-heading" class="text-xs font-medium uppercase tracking-[0.2em] text-ink-500">En qué puedo ayudarte</h2>
+      <p class="mt-3 max-w-2xl text-base text-ink-500">Tres formas concretas en las que puedo aportar valor a tu equipo o proyecto.</p>
+
+      <div class="mt-8 grid gap-4 sm:grid-cols-3">
+        <div class="flex flex-col rounded-2xl border border-ink-200 bg-white p-6">
+          <h3 class="text-base font-semibold text-ink-900">Automatización de procesos</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-ink-500">Automatizo tareas repetitivas y conecto tus herramientas para que el equipo deje de copiar y pegar entre sistemas.</p>
+          <p class="mt-3 text-sm font-medium text-accent-700">[TODO: resultado — ej. ahorrar X horas/semana]</p>
+          <a href="#contacto" class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-ink-900 hover:text-accent-700">
+            Hablemos <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <div class="flex flex-col rounded-2xl border border-ink-200 bg-white p-6">
+          <h3 class="text-base font-semibold text-ink-900">Infraestructura de datos</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-ink-500">Diseño pipelines de captura, procesamiento y almacenamiento para que tengas datos confiables y listos para decidir.</p>
+          <p class="mt-3 text-sm font-medium text-accent-700">[TODO: resultado — ej. datos limpios y actualizados sin intervención manual]</p>
+          <a href="#contacto" class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-ink-900 hover:text-accent-700">
+            Hablemos <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <div class="flex flex-col rounded-2xl border border-ink-200 bg-white p-6">
+          <h3 class="text-base font-semibold text-ink-900">MVPs de producto</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-ink-500">Llevo una idea a un MVP en producción: captura de datos, backend e interfaz React/TypeScript listos para usuarios reales.</p>
+          <p class="mt-3 text-sm font-medium text-accent-700">[TODO: resultado — ej. de idea a demo funcional en X semanas]</p>
+          <a href="#contacto" class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-ink-900 hover:text-accent-700">
+            Hablemos <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Ahora ===== -->
+    <section id="ahora" class="scroll-mt-20 border-t border-ink-200 pt-16 pb-16" aria-labelledby="now-heading">
+      <div class="flex flex-wrap items-baseline justify-between gap-2">
+        <h2 id="now-heading" class="text-xs font-medium uppercase tracking-[0.2em] text-ink-500">Ahora</h2>
+        <p class="text-xs text-ink-500">Última actualización: <span id="now-updated" class="text-ink-700">—</span></p>
+      </div>
+      <ul id="now-list" class="mt-6 space-y-3">
+        <!-- Render dinámico desde data/now.json -->
+      </ul>
+    </section>
+
+    <!-- ===== Build log (preview) ===== -->
+    <section id="log" class="scroll-mt-20 border-t border-ink-200 pt-16 pb-16" aria-labelledby="log-heading">
+      <div class="flex flex-wrap items-baseline justify-between gap-2">
+        <h2 id="log-heading" class="text-xs font-medium uppercase tracking-[0.2em] text-ink-500">Build log</h2>
+        <a href="./log/" class="text-sm font-medium text-accent-700 hover:text-accent-600">Ver todo →</a>
+      </div>
+      <p class="mt-3 max-w-2xl text-base text-ink-500">Notas cortas de lo que construyo y aprendo, en público.</p>
+      <ol id="log-list" class="mt-8 space-y-6">
+        <!-- Render dinámico desde data/log.json -->
+      </ol>
+    </section>
+
+    <!-- ===== Sobre mí ===== -->
+    <section id="sobre-mi" class="scroll-mt-20 border-t border-ink-200 pt-16 pb-16" aria-labelledby="about-heading">
+      <h2 id="about-heading" class="text-xs font-medium uppercase tracking-[0.2em] text-ink-500">Sobre mí</h2>
+      <div class="mt-6 flex flex-col gap-6 sm:flex-row sm:items-start">
+        <img src="https://github.com/facutom.png" alt="Foto de Facundo Tomasella"
+             width="112" height="112" loading="lazy"
+             class="h-24 w-24 shrink-0 rounded-full border border-ink-200 object-cover" />
+        <div>
+          <p class="text-base leading-relaxed text-ink-700">
+            Soy Facundo, de Buenos Aires. Trabajo en la intersección entre <span class="font-medium text-ink-900">sistemas, datos y finanzas</span>: construyo productos digitales de punta a punta y me gusta convertir ideas en sistemas que funcionan. Disfruto automatizar lo repetitivo, ordenar información dispersa y usar los datos para que las decisiones sean mejores. Cuando algo me resulta útil, lo construyo y lo comparto.
+          </p>
+          <a href="[TODO: link a tu CV en PDF]"
+             class="mt-4 inline-flex items-center gap-2 rounded-lg border border-ink-200 bg-white px-4 py-2 text-sm font-medium text-ink-700 transition-colors hover:border-ink-300 hover:text-ink-900">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+            Descargar CV
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contacto ===== -->
+    <section id="contacto" class="scroll-mt-20 border-t border-ink-200 pt-16 pb-16" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" class="text-2xl font-semibold tracking-tight text-ink-900">¿Construimos algo juntos?</h2>
+      <p class="mt-3 max-w-xl text-base leading-relaxed text-ink-500">
+        Si tenés un proceso que querés automatizar, datos que querés ordenar o una idea que querés llevar a producto, escribime. Respondo personalmente.
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a href="[TODO: link de calendario]"
+           class="inline-flex items-center gap-2 rounded-lg bg-accent-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-700">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Agendar llamada
+        </a>
+        <a href="mailto:[TODO: tu@email.com]"
+           class="inline-flex items-center gap-2 rounded-lg border border-ink-200 bg-white px-5 py-2.5 text-sm font-semibold text-ink-700 transition-colors hover:border-ink-300 hover:text-ink-900">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          [TODO: tu@email.com]
+        </a>
+        <a href="https://www.linkedin.com/in/facundotomasella/" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 rounded-lg border border-ink-200 bg-white px-5 py-2.5 text-sm font-semibold text-ink-700 transition-colors hover:border-ink-300 hover:text-ink-900">
           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065Zm1.782 13.019H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/></svg>
           LinkedIn
         </a>
-      </div>
-    </section>
-
-    <!-- Projects -->
-    <section class="mt-16" aria-labelledby="projects-heading">
-      <h2 id="projects-heading" class="text-xs font-medium uppercase tracking-[0.2em] text-ink-500">Proyectos</h2>
-
-      <div class="mt-6 grid gap-5 sm:grid-cols-2">
-        <a href="https://escalafast.com" target="_blank" rel="noopener noreferrer"
-           class="ring-focus group block overflow-hidden rounded-2xl border border-ink-200 bg-white transition-all hover:border-ink-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-ink-900/5">
-          <div class="aspect-[1200/630] overflow-hidden bg-ink-100">
-            <img src="assets/escalafast.png" alt="Vista previa del sitio de EscalaFast"
-                 width="1200" height="630" loading="lazy"
-                 class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" />
-          </div>
-          <div class="p-5">
-            <div class="flex items-start justify-between gap-3">
-              <h3 class="text-lg font-semibold text-ink-900">EscalaFast</h3>
-              <svg class="h-4 w-4 shrink-0 text-ink-500 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M7 17 17 7M7 7h10v10" />
-              </svg>
-            </div>
-            <p class="mt-2 text-[0.95rem] leading-relaxed text-ink-500">Proyecto enfocado en ayudar a empresas a crecer mediante automatización y soluciones digitales.</p>
-            <span class="mt-3 inline-block text-sm font-medium text-ink-500 group-hover:text-ink-700">escalafast.com</span>
-          </div>
-        </a>
-
-        <a href="https://tradingchango.com" target="_blank" rel="noopener noreferrer"
-           class="ring-focus group block overflow-hidden rounded-2xl border border-ink-200 bg-white transition-all hover:border-ink-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-ink-900/5">
-          <div class="aspect-[1200/630] overflow-hidden bg-ink-100">
-            <img src="assets/tradingchango.png" alt="Vista previa del sitio de TradingChango"
-                 width="1200" height="630" loading="lazy"
-                 class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]" />
-          </div>
-          <div class="p-5">
-            <div class="flex items-start justify-between gap-3">
-              <h3 class="text-lg font-semibold text-ink-900">TradingChango</h3>
-              <svg class="h-4 w-4 shrink-0 text-ink-500 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-ink-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M7 17 17 7M7 7h10v10" />
-              </svg>
-            </div>
-            <p class="mt-2 text-[0.95rem] leading-relaxed text-ink-500">Herramienta de seguimiento de precios y datos en Argentina.</p>
-            <span class="mt-3 inline-block text-sm font-medium text-ink-500 group-hover:text-ink-700">tradingchango.com</span>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- Approach -->
-    <section class="mt-16" aria-labelledby="approach-heading">
-      <h2 id="approach-heading" class="text-xs font-medium uppercase tracking-[0.2em] text-ink-500">Enfoque</h2>
-
-      <div class="mt-6 rounded-2xl border border-ink-200 bg-white p-6">
-        <p class="text-base sm:text-lg leading-relaxed text-ink-700">
-          Me muevo en la intersección entre <span class="text-ink-900 font-medium">sistemas, datos y finanzas</span>. Construyo infraestructura de datos que captura, procesa y ordena información para convertirla en decisiones. Automatizo lo repetitivo, diseño sistemas que escalan y uso los datos como base para entender y mejorar cómo operan los negocios.
-        </p>
-
-        <div class="mt-6 flex flex-wrap gap-2">
-          <span class="rounded-full border border-ink-200 bg-ink-50 px-3 py-1 text-sm text-ink-700">Python</span>
-          <span class="rounded-full border border-ink-200 bg-ink-50 px-3 py-1 text-sm text-ink-700">SQL</span>
-          <span class="rounded-full border border-ink-200 bg-ink-50 px-3 py-1 text-sm text-ink-700">Postgres</span>
-          <span class="rounded-full border border-ink-200 bg-ink-50 px-3 py-1 text-sm text-ink-700">Supabase</span>
-          <span class="rounded-full border border-ink-200 bg-ink-50 px-3 py-1 text-sm text-ink-700">React</span>
-          <span class="rounded-full border border-ink-200 bg-ink-50 px-3 py-1 text-sm text-ink-700">TypeScript</span>
-          <span class="rounded-full border border-ink-200 bg-ink-50 px-3 py-1 text-sm text-ink-700">Automatización</span>
-          <span class="rounded-full border border-ink-200 bg-ink-50 px-3 py-1 text-sm text-ink-700">Finanzas</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer / CTA -->
-    <footer class="mt-16 border-t border-ink-200 pt-8">
-      <h2 class="text-xl font-semibold text-ink-900">¿Construimos algo juntos?</h2>
-      <p class="mt-2 max-w-lg text-base leading-relaxed text-ink-500">
-        Estoy abierto a conversar sobre productos, datos y automatización. La forma más rápida de contactarme es por LinkedIn.
-      </p>
-
-      <div class="mt-6 flex flex-wrap items-center gap-3">
-        <a href="https://www.linkedin.com/in/facundotomasella/" target="_blank" rel="noopener noreferrer"
-           class="ring-focus inline-flex items-center gap-2 rounded-lg bg-ink-900 px-4 py-2 text-base font-medium text-white transition-colors hover:bg-ink-700">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065Zm1.782 13.019H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/></svg>
-          Conectar en LinkedIn
-        </a>
         <a href="https://x.com/Facutom_" target="_blank" rel="noopener noreferrer"
-           class="ring-focus inline-flex items-center gap-2 rounded-lg border border-ink-200 px-4 py-2 text-base font-medium text-ink-700 transition-colors hover:border-ink-300 hover:text-ink-900">
+           class="inline-flex items-center gap-2 rounded-lg border border-ink-200 bg-white px-5 py-2.5 text-sm font-semibold text-ink-700 transition-colors hover:border-ink-300 hover:text-ink-900">
           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
-          Seguir en X
+          X
         </a>
-        <button type="button" data-share
-           class="ring-focus inline-flex items-center gap-2 rounded-lg border border-ink-200 px-4 py-2 text-base font-medium text-ink-700 transition-colors hover:border-ink-300 hover:text-ink-900">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="18" cy="5" r="3" />
-            <circle cx="6" cy="12" r="3" />
-            <circle cx="18" cy="19" r="3" />
-            <path d="m8.59 13.51 6.83 3.98M15.41 6.51 8.59 10.49" />
-          </svg>
-          Compartir página
-        </button>
       </div>
 
-      <p class="mt-10 text-xs text-ink-500">© <span id="year"></span> Facundo Tomasella · Buenos Aires, Argentina</p>
-    </footer>
+      <!-- Suscripción: RSS + newsletter (placeholder) -->
+      <div class="mt-10 rounded-2xl border border-ink-200 bg-white p-6">
+        <h3 class="text-base font-semibold text-ink-900">Seguí el build log</h3>
+        <p class="mt-2 text-sm text-ink-500">Publico lo que construyo. Podés suscribirte por email o por RSS.</p>
 
-  </div>
+        <!-- [TODO] Conectar a un servicio de newsletter (Buttondown, ConvertKit, etc.) reemplazando la acción del form. -->
+        <form class="mt-4 flex flex-col gap-2 sm:flex-row" data-newsletter>
+          <label for="newsletter-email" class="sr-only">Tu email</label>
+          <input id="newsletter-email" type="email" required placeholder="[TODO: tu@email.com]"
+                 class="w-full rounded-lg border border-ink-200 bg-ink-50 px-4 py-2.5 text-sm text-ink-900 placeholder:text-ink-300 focus:border-accent-600 focus:outline-none sm:max-w-xs" />
+          <button type="submit"
+                  class="rounded-lg border border-ink-200 bg-ink-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-ink-700">
+            Suscribirme
+          </button>
+        </form>
+        <p class="mt-3 text-xs text-ink-500">
+          ¿Preferís RSS? <a href="feed.xml" class="font-medium text-accent-700 hover:text-accent-600">feed.xml</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="border-t border-ink-200">
+    <div class="mx-auto flex max-w-content flex-col gap-3 px-6 py-8 text-sm text-ink-500 sm:flex-row sm:items-center sm:justify-between">
+      <p>© <span id="year"></span> Facundo Tomasella · Buenos Aires, Argentina</p>
+      <nav class="flex flex-wrap gap-x-5 gap-y-2" aria-label="Enlaces del pie">
+        <a href="#proyectos" class="hover:text-ink-900">Proyectos</a>
+        <a href="#servicios" class="hover:text-ink-900">Servicios</a>
+        <a href="./log/" class="hover:text-ink-900">Build log</a>
+        <a href="#contacto" class="hover:text-ink-900">Contacto</a>
+        <a href="feed.xml" class="hover:text-ink-900">RSS</a>
+      </nav>
+    </div>
+  </footer>
 
   <div id="toast" role="status" aria-live="polite"
        class="pointer-events-none fixed bottom-6 left-1/2 z-50 -translate-x-1/2 translate-y-3 rounded-lg border border-ink-200 bg-ink-900 px-4 py-2 text-sm text-white opacity-0 shadow-lg transition-all duration-300">
@@ -252,45 +432,103 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    const BASE = document.body.dataset.base || './';
+
     const toast = document.getElementById('toast');
     let toastTimer;
-
     function showToast(message) {
       toast.textContent = message;
       toast.classList.remove('opacity-0', 'translate-y-3');
       clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => {
-        toast.classList.add('opacity-0', 'translate-y-3');
-      }, 2200);
+      toastTimer = setTimeout(() => toast.classList.add('opacity-0', 'translate-y-3'), 2400);
     }
 
-    async function sharePage() {
-      const shareData = {
-        title: 'Facundo Tomasella',
-        text: 'Facundo Tomasella — Productos digitales, datos y automatización.',
-        url: window.location.href,
-      };
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => (
+      { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+    ));
 
-      if (navigator.share) {
-        try {
-          await navigator.share(shareData);
-          return;
-        } catch (err) {
-          if (err && err.name === 'AbortError') return;
-        }
-      }
+    function formatDate(iso) {
+      if (!iso) return '—';
+      const d = new Date(iso + 'T00:00:00');
+      if (Number.isNaN(d.getTime())) return iso;
+      return d.toLocaleDateString('es-AR', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
 
+    async function loadJSON(path) {
+      const res = await fetch(BASE + path, { cache: 'no-cache' });
+      if (!res.ok) throw new Error(res.status);
+      return res.json();
+    }
+
+    async function renderMetrics() {
+      const el = document.getElementById('metrics');
+      if (!el) return;
       try {
-        await navigator.clipboard.writeText(shareData.url);
-        showToast('Enlace copiado al portapapeles');
+        const { metrics } = await loadJSON('data/metrics.json');
+        el.innerHTML = metrics.map((m) => `
+          <div>
+            <dt class="text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">${esc(m.value)}</dt>
+            <dd class="mt-2 text-sm leading-snug text-ink-500">${esc(m.label)}</dd>
+            ${m.hint ? `<dd class="mt-1 text-xs text-ink-300">${esc(m.hint)}</dd>` : ''}
+          </div>`).join('');
       } catch {
-        showToast(shareData.url);
+        el.innerHTML = '<p class="col-span-full text-sm text-ink-500">[TODO: completar data/metrics.json]</p>';
       }
     }
 
-    document.querySelectorAll('[data-share]').forEach((btn) => {
-      btn.addEventListener('click', sharePage);
-    });
+    async function renderNow() {
+      const list = document.getElementById('now-list');
+      const updated = document.getElementById('now-updated');
+      if (!list) return;
+      try {
+        const data = await loadJSON('data/now.json');
+        updated.textContent = formatDate(data.updated);
+        list.innerHTML = data.items.map((item) => `
+          <li class="flex gap-3 text-base leading-relaxed text-ink-700">
+            <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-600" aria-hidden="true"></span>
+            <span>${esc(item)}</span>
+          </li>`).join('');
+      } catch {
+        list.innerHTML = '<li class="text-sm text-ink-500">[TODO: completar data/now.json]</li>';
+      }
+    }
+
+    async function renderLog(limit) {
+      const list = document.getElementById('log-list');
+      if (!list) return;
+      try {
+        const { entries } = await loadJSON('data/log.json');
+        const items = limit ? entries.slice(0, limit) : entries;
+        list.innerHTML = items.map((e) => `
+          <li class="border-l-2 border-ink-200 pl-4">
+            <time class="text-xs font-medium uppercase tracking-wide text-ink-500" datetime="${esc(e.date)}">${esc(formatDate(e.date))}</time>
+            <h3 class="mt-1 text-base font-semibold text-ink-900">${esc(e.title)}</h3>
+            <p class="mt-1 text-sm leading-relaxed text-ink-500">${esc(e.body)}</p>
+            ${e.link ? `<a href="${esc(e.link)}" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1 text-sm font-medium text-accent-700 hover:text-accent-600">Ver post <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>` : ''}
+          </li>`).join('');
+      } catch {
+        list.innerHTML = '<li class="text-sm text-ink-500">[TODO: completar data/log.json]</li>';
+      }
+    }
+
+    renderMetrics();
+    renderNow();
+    renderLog(3);
+
+    // Newsletter (placeholder hasta conectar un servicio real)
+    const form = document.querySelector('[data-newsletter]');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        showToast('[TODO] Conectar servicio de newsletter.');
+      });
+    }
+
+    // Toggle de idioma (placeholder: estructura lista para /en)
+    const langBtn = document.querySelector('[data-lang-toggle]');
+    if (langBtn) {
+      langBtn.addEventListener('click', () => showToast('English version coming soon — [TODO]'));
+    }
   </script>
 </body>
 </html>
