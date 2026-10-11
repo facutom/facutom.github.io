@@ -76,7 +76,7 @@
             },
           },
           maxWidth: {
-            content: '52rem',
+            content: '46rem',
           },
         },
       },
@@ -124,35 +124,10 @@
 
 <body data-base="./" class="bg-ink-950 text-ink-200 font-sans antialiased min-h-screen">
 
-  <!-- ===== Barra superior ===== -->
-  <header class="sticky top-0 z-30 border-b border-ink-800/80 bg-ink-950/80 backdrop-blur">
-    <div class="mx-auto flex max-w-content items-center justify-between gap-4 px-6 py-3">
-      <a href="#top" class="font-mono text-sm font-medium tracking-tight text-ink-50">Facundo Tomasella</a>
-      <nav class="flex items-center gap-0.5" aria-label="Secciones">
-        <a href="#proyectos" class="rounded-md px-3 py-1.5 font-mono text-xs text-ink-400 transition-colors hover:bg-ink-800 hover:text-ink-50">Proyectos</a>
-        <a href="#actividad" class="rounded-md px-3 py-1.5 font-mono text-xs text-ink-400 transition-colors hover:bg-ink-800 hover:text-ink-50">Actividad</a>
-        <a href="#contacto" class="rounded-md px-3 py-1.5 font-mono text-xs text-ink-400 transition-colors hover:bg-ink-800 hover:text-ink-50">Contacto</a>
-        <span class="mx-1.5 hidden h-4 w-px bg-ink-700 sm:block" aria-hidden="true"></span>
-        <a href="https://x.com/Facutom_" target="_blank" rel="noopener noreferrer" aria-label="X"
-           class="rounded-md p-1.5 text-ink-400 transition-colors hover:bg-ink-800 hover:text-ink-50">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/facundotomasella/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-           class="hidden rounded-md p-1.5 text-ink-400 transition-colors hover:bg-ink-800 hover:text-ink-50 sm:block">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065Zm1.782 13.019H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/></svg>
-        </a>
-        <a href="mailto:Facu_tomasella@hotmail.com" aria-label="Email"
-           class="hidden rounded-md p-1.5 text-ink-400 transition-colors hover:bg-ink-800 hover:text-ink-50 sm:block">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-        </a>
-      </nav>
-    </div>
-  </header>
+  <div class="mx-auto max-w-content px-6 py-16 sm:py-24">
 
-  <main id="top" class="mx-auto max-w-content px-6 py-14 sm:py-20">
-
-    <!-- ===== Hero ===== -->
-    <section class="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-6">
+    <!-- ===== Encabezado ===== -->
+    <header class="flex items-center gap-5">
       <img
         src="https://github.com/facutom.png"
         alt="Foto de Facundo Tomasella"
@@ -160,8 +135,8 @@
         class="h-20 w-20 shrink-0 rounded-full border border-ink-700 object-cover sm:h-24 sm:w-24" />
 
       <div class="min-w-0">
-        <h1 class="text-3xl font-semibold tracking-tight text-ink-50 sm:text-4xl">Facundo Tomasella</h1>
-        <p class="mt-2 flex items-center gap-1.5 text-base text-ink-400">
+        <h1 class="text-2xl font-semibold tracking-tight text-ink-50 sm:text-3xl">Facundo Tomasella</h1>
+        <p class="mt-1.5 flex items-center gap-1.5 text-base text-ink-400">
           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z" />
             <circle cx="12" cy="10" r="3" />
@@ -169,21 +144,37 @@
           Buenos Aires, Argentina
         </p>
       </div>
-    </section>
+
+      <nav class="ml-auto hidden items-center gap-1 sm:flex" aria-label="Redes y contacto">
+        <a href="mailto:Facu_tomasella@hotmail.com" aria-label="Email"
+           class="rounded-lg p-2 text-ink-400 transition-colors hover:bg-ink-800 hover:text-ink-50">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+        </a>
+        <a href="https://x.com/Facutom_" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"
+           class="rounded-lg p-2 text-ink-400 transition-colors hover:bg-ink-800 hover:text-ink-50">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/facundotomasella/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+           class="rounded-lg p-2 text-ink-400 transition-colors hover:bg-ink-800 hover:text-ink-50">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065Zm1.782 13.019H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/></svg>
+        </a>
+      </nav>
+    </header>
 
     <!-- ===== Propuesta de valor ===== -->
-    <section class="mt-10" aria-labelledby="value-heading">
-      <h2 id="value-heading" class="text-2xl font-semibold leading-snug tracking-tight text-ink-50 sm:text-[1.75rem]">
+    <section class="mt-14" aria-labelledby="value-heading">
+      <h2 id="value-heading" class="text-2xl font-semibold leading-snug tracking-tight text-ink-50 sm:text-[2rem]">
         Construyo negocios con <span class="text-accent-400">tecnología</span>.
       </h2>
 
-      <p class="mt-5 text-[1.0625rem] leading-relaxed text-ink-200 sm:text-lg">
+      <p class="mt-6 text-[1.0625rem] leading-relaxed text-ink-200 sm:text-lg">
         Desarrollo productos, pruebo ideas y busco formas de convertir <span class="font-medium text-ink-50">problemas reales</span> en <span class="font-medium text-ink-50">oportunidades comerciales</span>. <span class="font-medium text-ink-50">Comparto</span> lo que construyo, lo que aprendo y lo que funciona en el camino.
       </p>
+
     </section>
 
     <!-- ===== Proyectos ===== -->
-    <section id="proyectos" class="mt-16 scroll-mt-24 border-t border-ink-800 pt-12" aria-labelledby="projects-heading">
+    <section id="proyectos" class="mt-16 scroll-mt-10" aria-labelledby="projects-heading">
       <h2 id="projects-heading" class="text-xl font-semibold tracking-tight text-ink-50 sm:text-2xl">Proyectos</h2>
 
       <div class="mt-6 space-y-6">
@@ -276,56 +267,52 @@
     </section>
 
     <!-- ===== Última actividad / Posts ===== -->
-    <section id="actividad" class="mt-16 scroll-mt-24 border-t border-ink-800 pt-12" aria-labelledby="posts-heading">
+    <section id="actividad" class="mt-16 scroll-mt-10" aria-labelledby="posts-heading">
       <div class="flex flex-wrap items-baseline justify-between gap-2">
         <h2 id="posts-heading" class="text-xl font-semibold tracking-tight text-ink-50 sm:text-2xl">Última actividad</h2>
         <a href="https://x.com/Facutom_" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-mono text-xs text-ink-400 hover:text-ink-100">@Facutom_<svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
       </div>
 
-      <div class="mt-6 rounded-2xl border border-ink-700 p-6">
-        <div id="posts" class="border-l border-ink-700/80 pl-5">
-          <!-- Render dinámico desde data/posts.json (lo actualiza .github/workflows/update-feed.yml) -->
-        </div>
+      <div id="posts" class="mt-7 border-l border-ink-700/80 pl-5">
+        <!-- Render dinámico desde data/posts.json (lo actualiza .github/workflows/update-feed.yml) -->
       </div>
     </section>
 
     <!-- ===== Contacto ===== -->
-    <section id="contacto" class="mt-16 scroll-mt-24 border-t border-ink-800 pt-12" aria-labelledby="contact-heading">
-      <div class="rounded-2xl border border-ink-700 bg-ink-800 p-6 sm:p-8">
-        <h2 id="contact-heading" class="text-xl font-semibold tracking-tight text-ink-50 sm:text-2xl">Hablemos</h2>
-        <p class="mt-3 max-w-prose text-base leading-relaxed text-ink-200">
-          Si algo de lo que construyo te resulta útil, o querés intercambiar ideas sobre negocios, tecnología o producto, escribime.
-        </p>
+    <section id="contacto" class="mt-16 scroll-mt-10" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" class="text-xl font-semibold tracking-tight text-ink-50">Hablemos</h2>
+      <p class="mt-3 max-w-prose text-base leading-relaxed text-ink-200">
+        Si algo de lo que hago te resulta útil, o querés intercambiar ideas sobre datos, automatización o producto, escribime.
+      </p>
 
-        <p class="mt-5">
-          <a href="mailto:Facu_tomasella@hotmail.com" class="font-mono text-sm text-accent-400 hover:text-accent-300">Facu_tomasella@hotmail.com</a>
-        </p>
+      <p class="mt-5">
+        <a href="mailto:Facu_tomasella@hotmail.com" class="font-mono text-sm text-accent-400 hover:text-accent-300">Facu_tomasella@hotmail.com</a>
+      </p>
 
-        <div class="mt-6 flex flex-wrap items-center gap-3">
-          <a href="mailto:Facu_tomasella@hotmail.com"
-             class="inline-flex items-center gap-2 rounded-lg bg-ink-50 px-5 py-2.5 text-sm font-semibold text-ink-950 transition-colors hover:bg-white">
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-            Enviar email
-          </a>
-          <a href="https://x.com/Facutom_" target="_blank" rel="noopener noreferrer" aria-label="X"
-             class="inline-flex items-center justify-center rounded-lg border border-ink-600 p-2.5 text-ink-100 transition-colors hover:border-ink-500 hover:bg-ink-900">
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/in/facundotomasella/" target="_blank" rel="noopener noreferrer"
-             class="inline-flex items-center gap-2 rounded-lg border border-ink-600 px-5 py-2.5 text-sm font-semibold text-ink-100 transition-colors hover:border-ink-500 hover:bg-ink-900">
-            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065Zm1.782 13.019H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/></svg>
-            LinkedIn
-          </a>
-        </div>
+      <div class="mt-6 flex flex-wrap items-center gap-3">
+        <a href="mailto:Facu_tomasella@hotmail.com"
+           class="inline-flex items-center gap-2 rounded-lg bg-ink-50 px-5 py-2.5 text-sm font-semibold text-ink-950 transition-colors hover:bg-white">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          Enviar email
+        </a>
+        <a href="https://x.com/Facutom_" target="_blank" rel="noopener noreferrer" aria-label="X"
+           class="inline-flex items-center justify-center rounded-lg border border-ink-600 p-2.5 text-ink-100 transition-colors hover:border-ink-500 hover:bg-ink-800">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/facundotomasella/" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 rounded-lg border border-ink-600 px-5 py-2.5 text-sm font-semibold text-ink-100 transition-colors hover:border-ink-500 hover:bg-ink-800">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065Zm1.782 13.019H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/></svg>
+          LinkedIn
+        </a>
       </div>
     </section>
 
     <!-- ===== Pie ===== -->
-    <footer class="mt-16 border-t border-ink-800 pt-8">
+    <footer class="mt-16 border-t border-ink-700 pt-8">
       <p class="text-xs text-ink-400">© <span id="year">2026</span> Facundo Tomasella · Buenos Aires, Argentina</p>
     </footer>
 
-  </main>
+  </div>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
