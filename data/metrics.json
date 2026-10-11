@@ -1,0 +1,25 @@
+{
+  "_comment": "Editá los valores o agregá/quitar métricas. 'value' es el número grande, 'label' la descripción y 'hint' una aclaración corta opcional. Todo dato sin confirmar debe quedar como [TODO: ...].",
+  "metrics": [
+    {
+      "value": "[TODO: N]",
+      "label": "productos trackeados en TradingChango",
+      "hint": "actualizado [TODO: mes/año]"
+    },
+    {
+      "value": "[TODO: N]",
+      "label": "usuarios activos",
+      "hint": "[TODO: mensuales o totales]"
+    },
+    {
+      "value": "[TODO: N]%",
+      "label": "uptime de los servicios en producción",
+      "hint": "últimos 90 días"
+    },
+    {
+      "value": "[TODO: N]",
+      "label": "automatizaciones desplegadas",
+      "hint": "para clientes y proyectos propios"
+    }
+  ]
+}

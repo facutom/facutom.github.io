@@ -1,0 +1,10 @@
+{
+  "_comment": "Sección 'Ahora'. Actualizá 'updated' (formato YYYY-MM-DD) cada vez que edites los bullets. Cada bullet es un string corto (1 línea).",
+  "updated": "[TODO: YYYY-MM-DD]",
+  "items": [
+    "[TODO: qué estás construyendo esta semana — ej: mejorando el pipeline de precios de TradingChango]",
+    "[TODO: qué estás aprendiendo — ej: patrones de ingestión incremental en Postgres]",
+    "[TODO: un experimento o idea en curso]",
+    "[TODO: algo que terminaste o lanzaste recientemente]"
+  ]
+}

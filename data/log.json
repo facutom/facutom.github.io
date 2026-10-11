@@ -1,0 +1,23 @@
+{
+  "_comment": "Build log. Para agregar una entrada, copiá un objeto y completalo. 'date' en formato YYYY-MM-DD. 'title' corto, 2-3 líneas en 'body', y 'link' opcional (post de X, PR, demo). Ordená de más reciente a más antiguo. Las entradas de ejemplo están marcadas como [TODO] y conviene borrarlas cuando cargues las tuyas.",
+  "entries": [
+    {
+      "date": "[TODO: 2026-10-10]",
+      "title": "[TODO: título de la entrada más reciente]",
+      "body": "[TODO: 2-3 líneas contando qué hiciste, qué aprendiste o qué rompiste y arreglaste.]",
+      "link": ""
+    },
+    {
+      "date": "[TODO: 2026-10-03]",
+      "title": "Rediseño la web personal y la vuelco a casos de estudio",
+      "body": "Reescribí el portfolio para que muestre problema, solución y stack de cada proyecto, con una sección de métricas y un build log editable desde JSON.",
+      "link": ""
+    },
+    {
+      "date": "[TODO: 2026-09-26]",
+      "title": "Endurezco el pipeline de datos de TradingChango",
+      "body": "Agregué manejo de reintentos y deduplicación en la captura de precios para que los precios históricos queden consistentes entre corridas.",
+      "link": ""
+    }
+  ]
+}
