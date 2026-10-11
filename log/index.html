@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Build log — Facundo Tomasella</title>
+  <meta name="description" content="Build log de Facundo Tomasella: notas cortas y fechadas de lo que construye y aprende, en público." />
+  <link rel="canonical" href="https://facutom.github.io/log/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Facundo Tomasella" />
+  <meta property="og:url" content="https://facutom.github.io/log/" />
+  <meta property="og:title" content="Build log — Facundo Tomasella" />
+  <meta property="og:description" content="Notas cortas y fechadas de lo que construyo y aprendo, en público." />
+  <meta property="og:image" content="https://facutom.github.io/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@Facutom_" />
+
+  <link rel="alternate" type="application/rss+xml" title="Build log de Facundo Tomasella" href="https://facutom.github.io/feed.xml" />
+  <link rel="icon" type="image/png" href="https://github.com/facutom.png" />
+  <link rel="apple-touch-icon" href="https://github.com/facutom.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'] },
+          colors: {
+            ink: { 50:'#f5f6f8', 100:'#eceef1', 200:'#dfe2e7', 300:'#c2c7cf', 500:'#69707d', 700:'#3b414c', 900:'#1d222b' },
+            accent: { 50:'#eff6ff', 100:'#dbeafe', 600:'#2563eb', 700:'#1d4ed8' },
+          },
+          maxWidth: { content: '52rem' },
+        },
+      },
+    };
+  </script>
+  <style type="text/tailwindcss">
+    @layer base {
+      body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+      ::selection { background: #2563eb; color: #fff; }
+      :focus-visible { outline: 2px solid #2563eb; outline-offset: 2px; }
+    }
+  </style>
+</head>
+
+<body data-base="../" class="bg-ink-50 text-ink-700 font-sans antialiased min-h-screen">
+
+  <header class="border-b border-ink-200/70 bg-ink-50/80 backdrop-blur">
+    <div class="mx-auto flex max-w-content items-center gap-3 px-6 py-4">
+      <a href="../" class="flex items-center gap-3">
+        <img src="https://github.com/facutom.png" alt="Foto de Facundo Tomasella"
+             width="36" height="36" class="h-9 w-9 rounded-full border border-ink-200 object-cover" />
+        <span class="text-sm font-semibold text-ink-900">Facundo Tomasella</span>
+      </a>
+      <a href="../" class="ml-auto text-sm font-medium text-accent-700 hover:text-accent-600">← Volver al inicio</a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-content px-6 pt-16 pb-20">
+    <h1 class="text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl">Build log</h1>
+    <p class="mt-4 max-w-2xl text-base leading-relaxed text-ink-500">
+      Notas cortas y fechadas de lo que construyo, aprendo y rompo mientras trabajo en mis proyectos. Todo se edita desde un solo archivo: <code class="rounded bg-ink-100 px-1.5 py-0.5 text-sm text-ink-700">data/log.json</code>.
+    </p>
+
+    <ol id="log-list" class="mt-12 space-y-8">
+      <!-- Render dinámico desde ../data/log.json -->
+    </ol>
+
+    <p class="mt-12 border-t border-ink-200 pt-6 text-sm text-ink-500">
+      Suscribite por <a href="../feed.xml" class="font-medium text-accent-700 hover:text-accent-600">RSS</a> o
+      <a href="../#contacto" class="font-medium text-accent-700 hover:text-accent-600">conectemos</a>.
+    </p>
+  </main>
+
+  <footer class="border-t border-ink-200">
+    <div class="mx-auto max-w-content px-6 py-8 text-sm text-ink-500">
+      © <span id="year"></span> Facundo Tomasella · Buenos Aires, Argentina
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const BASE = document.body.dataset.base || './';
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+    const formatDate = (iso) => {
+      const d = new Date(iso + 'T00:00:00');
+      return Number.isNaN(d.getTime()) ? iso : d.toLocaleDateString('es-AR', { year:'numeric', month:'long', day:'numeric' });
+    };
+
+    (async () => {
+      const list = document.getElementById('log-list');
+      try {
+        const res = await fetch(BASE + 'data/log.json', { cache: 'no-cache' });
+        if (!res.ok) throw new Error(res.status);
+        const { entries } = await res.json();
+        list.innerHTML = entries.map((e) => `
+          <li class="border-l-2 border-ink-200 pl-5">
+            <time class="text-xs font-medium uppercase tracking-wide text-ink-500" datetime="${esc(e.date)}">${esc(formatDate(e.date))}</time>
+            <h2 class="mt-1 text-lg font-semibold text-ink-900">${esc(e.title)}</h2>
+            <p class="mt-2 text-base leading-relaxed text-ink-500">${esc(e.body)}</p>
+            ${e.link ? `<a href="${esc(e.link)}" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1 text-sm font-medium text-accent-700 hover:text-accent-600">Ver post <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>` : ''}
+          </li>`).join('');
+      } catch {
+        list.innerHTML = '<li class="text-sm text-ink-500">[TODO: completar data/log.json]</li>';
+      }
+    })();
+  </script>
+</body>
+</html>
