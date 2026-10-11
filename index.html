@@ -29,12 +29,12 @@
           },
           colors: {
             ink: {
-              950: '#08090a',
-              900: '#0d0e10',
-              800: '#16181c',
-              700: '#23262c',
-              500: '#8b9099',
-              300: '#c9ccd1',
+              950: '#1c2129',
+              900: '#252b34',
+              800: '#313844',
+              700: '#414a58',
+              500: '#9aa1ac',
+              300: '#d0d5dc',
             },
           },
           maxWidth: {
@@ -63,7 +63,7 @@
       }
       .ring-focus:focus-visible {
         outline: none;
-        box-shadow: 0 0 0 2px #08090a, 0 0 0 4px #6b7280;
+        box-shadow: 0 0 0 2px #1c2129, 0 0 0 4px #9aa1ac;
       }
     }
   </style>
@@ -100,6 +100,15 @@
       </div>
 
       <nav class="ml-auto hidden sm:flex items-center gap-2" aria-label="Redes sociales">
+        <button type="button" data-share aria-label="Compartir página"
+           class="ring-focus rounded-lg p-2 text-ink-500 hover:text-white hover:bg-ink-800 transition-colors">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="18" cy="5" r="3" />
+            <circle cx="6" cy="12" r="3" />
+            <circle cx="18" cy="19" r="3" />
+            <path d="m8.59 13.51 6.83 3.98M15.41 6.51 8.59 10.49" />
+          </svg>
+        </button>
         <a href="https://x.com/Facutom_" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"
            class="ring-focus rounded-lg p-2 text-ink-500 hover:text-white hover:bg-ink-800 transition-colors">
           <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -205,6 +214,16 @@
           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
           Seguir en X
         </a>
+        <button type="button" data-share
+           class="ring-focus inline-flex items-center gap-2 rounded-lg border border-ink-700 px-4 py-2 text-sm font-medium text-ink-300 transition-colors hover:border-ink-500 hover:text-white">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="18" cy="5" r="3" />
+            <circle cx="6" cy="12" r="3" />
+            <circle cx="18" cy="19" r="3" />
+            <path d="m8.59 13.51 6.83 3.98M15.41 6.51 8.59 10.49" />
+          </svg>
+          Compartir página
+        </button>
       </div>
 
       <p class="mt-10 text-xs text-ink-500">© <span id="year"></span> Facundo Tomasella · Buenos Aires, Argentina</p>
@@ -212,8 +231,52 @@
 
   </div>
 
+  <div id="toast" role="status" aria-live="polite"
+       class="pointer-events-none fixed bottom-6 left-1/2 z-50 -translate-x-1/2 translate-y-3 rounded-lg border border-ink-700 bg-ink-800 px-4 py-2 text-sm text-white opacity-0 shadow-lg transition-all duration-300">
+  </div>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const toast = document.getElementById('toast');
+    let toastTimer;
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.remove('opacity-0', 'translate-y-3');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-3');
+      }, 2200);
+    }
+
+    async function sharePage() {
+      const shareData = {
+        title: 'Facundo Tomasella',
+        text: 'Facundo Tomasella — Productos digitales, datos y automatización.',
+        url: window.location.href,
+      };
+
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+          return;
+        } catch (err) {
+          if (err && err.name === 'AbortError') return;
+        }
+      }
+
+      try {
+        await navigator.clipboard.writeText(shareData.url);
+        showToast('Enlace copiado al portapapeles');
+      } catch {
+        showToast(shareData.url);
+      }
+    }
+
+    document.querySelectorAll('[data-share]').forEach((btn) => {
+      btn.addEventListener('click', sharePage);
+    });
   </script>
 </body>
 </html>
