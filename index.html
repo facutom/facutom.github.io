@@ -8,7 +8,7 @@
   <link rel="apple-touch-icon" href="assets/favicon.png"/>
   <meta name="description" content="Desarrollo productos, pruebo ideas y busco formas de convertir problemas reales en oportunidades comerciales. Comparto lo que construyo, lo que aprendo y lo que funciona en el camino."/>
   <meta name="application-name" content="Facundo Tomasella"/>
-  <meta property="og:title" content="Facundo Tomasella"/>
+  <meta property="og:title" content="Facundo Tomasella | Business & Tech"/>
   <meta property="og:description" content="Desarrollo productos, pruebo ideas y busco formas de convertir problemas reales en oportunidades comerciales. Comparto lo que construyo, lo que aprendo y lo que funciona en el camino."/>
   <meta property="og:type" content="website"/>
   <link rel="canonical" href="https://facutom.github.io/"/>
@@ -23,7 +23,7 @@
   <meta name="twitter:image" content="https://facutom.github.io/assets/og-image-3.png"/>
   <meta name="twitter:image:alt" content="Facundo Tomasella — Business & Tech"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Facundo Tomasella"/>
+  <meta name="twitter:title" content="Facundo Tomasella | Business & Tech"/>
   <meta name="twitter:description" content="Desarrollo productos, pruebo ideas y busco formas de convertir problemas reales en oportunidades comerciales. Comparto lo que construyo, lo que aprendo y lo que funciona en el camino."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -187,7 +187,7 @@
       document.documentElement.lang = lang;
       if (d.title) document.title = d.title;
       [['meta[name="description"]', 'content'], ['meta[property="og:description"]', 'content'], ['meta[name="twitter:description"]', 'content'], ['meta[property="og:title"]', 'content'], ['meta[name="twitter:title"]', 'content']]
-        .forEach(([sel, attr]) => { const el = document.querySelector(sel); if (el) el.setAttribute(attr, sel.includes('title') ? 'Facundo Tomasella' : d.desc); });
+        .forEach(([sel, attr]) => { const el = document.querySelector(sel); if (el) el.setAttribute(attr, sel.includes('title') ? 'Facundo Tomasella | Business & Tech' : d.desc); });
       document.querySelectorAll('[data-i18n]').forEach((el) => { const v = I18N[LANG][el.dataset.i18n]; if (v != null) el.textContent = v; });
       document.querySelectorAll('[data-i18n-html]').forEach((el) => { const v = I18N[LANG][el.dataset.i18nHtml]; if (v != null) el.innerHTML = v; });
       document.querySelectorAll('[data-i18n-aria]').forEach((el) => { const v = I18N[LANG][el.dataset.i18nAria]; if (v != null) el.setAttribute('aria-label', v); });
