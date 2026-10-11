@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 1200px; height: 630px; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #141414;
+      color: #a5a5a5;
+      padding: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+    .top { display: flex; align-items: center; gap: 28px; }
+    .avatar { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; }
+    .name { color: #ffffff; font-size: 42px; font-weight: 600; letter-spacing: -0.02em; }
+    .loc { font-size: 26px; margin-top: 6px; }
+    .tagline { font-size: 54px; font-weight: 600; line-height: 1.24; letter-spacing: -0.02em; max-width: 1010px; }
+    .tagline b { color: #ffffff; font-weight: 600; }
+    .bottom { display: flex; align-items: center; justify-content: space-between; font-size: 26px; }
+    .url { color: #ffffff; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <img class="avatar" src="https://github.com/facutom.png" alt=""/>
+    <div>
+      <div class="name">Facundo Tomasella</div>
+      <div class="loc">Buenos Aires</div>
+    </div>
+  </div>
+  <div class="tagline">Construyo productos y convierto <b>problemas reales en oportunidades comerciales</b>.</div>
+  <div class="bottom">
+    <span class="url">facutom.github.io</span>
+    <span>Business &amp; Tech</span>
+  </div>
+</body>
+</html>
