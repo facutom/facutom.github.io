@@ -1,110 +1,127 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="__className_6554cf">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Facundo Tomasella — Construyo negocios con tecnología</title>
-  <meta name="description" content="Desarrollo productos, pruebo ideas y busco formas de convertir problemas reales en oportunidades comerciales." />
-  <meta name="author" content="Facundo Tomasella" />
-  <meta name="theme-color" content="#0A0A0A" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Facundo Tomasella</title>
+  <meta name="description" content="Construyo negocios con tecnología. Desarrollo productos, pruebo ideas y convierto problemas reales en oportunidades comerciales."/>
+  <meta name="application-name" content="Facundo Tomasella"/>
+  <meta property="og:title" content="Facundo Tomasella"/>
+  <meta property="og:description" content="Construyo negocios con tecnología. Desarrollo productos, pruebo ideas y convierto problemas reales en oportunidades comerciales."/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Facundo Tomasella"/>
+  <meta name="twitter:description" content="Construyo negocios con tecnología. Desarrollo productos, pruebo ideas y convierto problemas reales en oportunidades comerciales."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: ['class'],
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          fontFamily: { sans: ['Inter','system-ui','-apple-system','BlinkMacSystemFont','sans-serif'] },
+          colors: {
+            background: 'hsl(0 0% 3.9%)',
+            foreground: 'hsl(0 0% 98%)',
+            'muted-foreground': 'hsl(0 0% 63.9%)',
+            card: 'hsl(0 0% 6.9%)',
           },
         },
       },
     };
   </script>
 </head>
-
-<body class="bg-[#0A0A0A] font-sans text-[#A3A3A3] antialiased min-h-screen">
-  <main class="mx-auto max-w-2xl px-6 py-12">
-    <!-- Header -->
-    <header class="flex flex-col items-start gap-6">
-      <div>
-        <h1 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Facundo Tomasella</h1>
-        <p class="mt-2 flex items-center gap-1.5 text-sm text-[#A3A3A3]">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z" />
-            <circle cx="12" cy="10" r="3" />
-          </svg>
-          Buenos Aires, Argentina
-        </p>
-      </div>
-
-      <p class="max-w-xl text-base leading-relaxed text-[#A3A3A3]">
-        Me apasiona comprender cómo funcionan los negocios y usar la tecnología como palanca para construir productos, automatizaciones y soluciones de forma independiente.
-      </p>
-
-      <div class="flex items-center gap-2">
-        <a href="https://x.com/Facutom_" target="_blank" rel="noopener noreferrer" aria-label="X"
-           class="rounded-lg p-2 text-[#A3A3A3] transition-colors hover:bg-[#141414] hover:text-white">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/facundotomasella/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-           class="rounded-lg p-2 text-[#A3A3A3] transition-colors hover:bg-[#141414] hover:text-white">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065Zm1.782 13.019H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/></svg>
-        </a>
-        <a href="mailto:Facu_tomasella@hotmail.com" aria-label="Email"
-           class="rounded-lg p-2 text-[#A3A3A3] transition-colors hover:bg-[#141414] hover:text-white">
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-        </a>
-      </div>
-    </header>
-
-    <!-- Proyectos -->
-    <section class="mt-12 flex flex-col gap-6">
-      <div class="grid gap-4">
-        <a href="https://escalafast.com" target="_blank" rel="noopener noreferrer" class="block rounded-2xl border border-[#262626] bg-[#141414] p-6 transition-colors hover:bg-[#1A1A1A]">
-          <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-            <div>
-              <h3 class="text-base font-semibold text-white">EscalaFast</h3>
-              <p class="mt-1 text-sm leading-relaxed text-[#A3A3A3]">Mi agencia y plataforma de automatización de flujos comerciales para PyMEs.</p>
+<body class="bg-background text-foreground font-sans antialiased">
+  <div class="flex flex-col min-h-screen">
+    <main class="flex-grow">
+      <div class="bg-background text-foreground">
+        <main class="flex flex-col gap-12 pb-12 pt-16 sm:pt-24 w-full max-w-3xl mx-auto px-6">
+          <!-- Header -->
+          <div class="flex flex-col gap-4 items-start">
+            <div class="flex items-center gap-4">
+              <img src="https://github.com/facutom.png" alt="Facundo Tomasella" width="48" height="48" class="rounded-full" loading="lazy"/>
+              <div>
+                <h1 class="text-md text-white font-semibold">Facundo Tomasella</h1>
+                <p class="text-md text-muted-foreground">Solopreneur</p>
+              </div>
             </div>
-            <span class="inline-flex w-fit items-center rounded-full border border-[#333333] bg-[#1F1F1F] px-2.5 py-1 text-xs text-[#D4D4D4]">Negocio Activo B2B</span>
-          </div>
-        </a>
-
-        <a href="https://tradingchango.com" target="_blank" rel="noopener noreferrer" class="block rounded-2xl border border-[#262626] bg-[#141414] p-6 transition-colors hover:bg-[#1A1A1A]">
-          <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-            <div>
-              <h3 class="text-base font-semibold text-white">TradingChango</h3>
-              <p class="mt-1 text-sm leading-relaxed text-[#A3A3A3]">Herramienta de seguimiento de precios y análisis de canasta básica en Argentina.</p>
+            <p class="text-lg sm:text-lg text-muted-foreground mt-2">Desarrollo productos, pruebo ideas y busco formas de convertir problemas reales en oportunidades comerciales. Comparto lo que construyo, lo que aprendo y lo que funciona en el camino.</p>
+            <div class="flex items-center gap-2">
+              <a href="https://x.com/Facutom_" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-card hover:opacity-80 transition-opacity px-3.5 py-2 rounded-full" aria-label="X">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
+                <span class="text-sm text-muted-foreground">X</span>
+              </a>
+              <a href="https://www.linkedin.com/in/facundotomasella/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-card hover:opacity-80 transition-opacity px-3.5 py-2 rounded-full" aria-label="LinkedIn">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065Zm1.782 13.019H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/></svg>
+                <span class="text-sm text-muted-foreground">LinkedIn</span>
+              </a>
+              <a href="mailto:Facu_tomasella@hotmail.com" class="flex items-center gap-2 bg-card hover:opacity-80 transition-opacity px-3.5 py-2 rounded-full" aria-label="Email">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+                <span class="text-sm text-muted-foreground">Email</span>
+              </a>
             </div>
-            <span class="inline-flex w-fit items-center rounded-full border border-[#333333] bg-[#1F1F1F] px-2.5 py-1 text-xs text-[#D4D4D4]">Caso de Estudio</span>
           </div>
-        </a>
-      </div>
-    </section>
 
-    <!-- Posts -->
-    <section class="mt-12 flex flex-col gap-6">
-      <h2 class="text-sm font-medium uppercase tracking-wide text-[#A3A3A3] opacity-80">Actividad</h2>
-      <div id="posts" class="grid gap-4"></div>
-    </section>
+          <!-- My Startups -->
+          <section class="flex flex-col gap-6">
+            <p class="text-xs uppercase tracking-wider text-muted-foreground opacity-60">Mis proyectos</p>
+            <div class="grid gap-4">
+              <a href="https://escalafast.com" target="_blank" rel="noopener noreferrer" class="block group rounded-lg p-4 -m-4 transition-all duration-200">
+                <div class="opacity-100 group-hover:opacity-70 transition-opacity duration-200">
+                  <div class="flex items-start gap-3">
+                    <img src="assets/escalafast.png" alt="EscalaFast" width="24" height="24" class="rounded-lg flex-shrink-0 mt-0.5" loading="lazy"/>
+                    <div class="min-w-0">
+                      <h3 class="text-lg font-semibold text-white">EscalaFast</h3>
+                      <p class="text-muted-foreground mt-1">Automatizaciones productizadas para PyMEs: integrando formularios, CRM y WhatsApp Business API para responder leads en segundos.</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <a href="https://tradingchango.com" target="_blank" rel="noopener noreferrer" class="block group rounded-lg p-4 -m-4 transition-all duration-200">
+                <div class="opacity-100 group-hover:opacity-70 transition-opacity duration-200">
+                  <div class="flex items-start gap-3">
+                    <img src="assets/tradingchango.png" alt="TradingChango" width="24" height="24" class="rounded-lg flex-shrink-0 mt-0.5" loading="lazy"/>
+                    <div class="min-w-0">
+                      <h3 class="text-lg font-semibold text-white">TradingChango</h3>
+                      <p class="text-muted-foreground mt-1">Comparador de precios de supermercados en Argentina con +50.000 ítems indexados, scraping automatizado y datos históricos.</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </section>
 
-    <!-- Footer -->
-    <footer class="mt-12 border-t border-[#262626] pt-8">
-      <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-        <p class="text-xs text-[#A3A3A3]">© 2026 Facundo Tomasella · Buenos Aires</p>
-        <div class="flex items-center gap-3">
-          <a href="https://x.com/Facutom_" target="_blank" rel="noopener noreferrer" class="text-xs text-[#A3A3A3] transition-colors hover:text-white">X</a>
-          <a href="https://www.linkedin.com/in/facundotomasella/" target="_blank" rel="noopener noreferrer" class="text-xs text-[#A3A3A3] transition-colors hover:text-white">LinkedIn</a>
-          <a href="mailto:Facu_tomasella@hotmail.com" class="text-xs text-[#A3A3A3] transition-colors hover:text-white">Email</a>
-        </div>
+          <!-- Journey -->
+          <section class="flex flex-col gap-6">
+            <p class="text-xs uppercase tracking-wider text-muted-foreground opacity-60">Mi camino</p>
+            <div id="posts" class="flex gap-4 overflow-x-auto -mx-6 px-6 pb-2 sm:mx-0 sm:px-0 sm:pb-0 sm:grid sm:grid-cols-3 sm:overflow-visible"></div>
+          </section>
+        </main>
+
+        <footer>
+          <section class="container mx-auto flex flex-col gap-4 pb-8 sm:pb-16 w-full max-w-3xl px-6">
+            <div class="flex gap-2">
+              <a href="https://x.com/Facutom_" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-card hover:opacity-80 transition-opacity px-3.5 py-2 rounded-full">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>
+                <span class="text-sm text-muted-foreground">X</span>
+              </a>
+              <a href="https://www.linkedin.com/in/facundotomasella/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-card hover:opacity-80 transition-opacity px-3.5 py-2 rounded-full">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065Zm1.782 13.019H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/></svg>
+                <span class="text-sm text-muted-foreground">LinkedIn</span>
+              </a>
+              <a href="mailto:Facu_tomasella@hotmail.com" class="flex items-center gap-2 bg-card hover:opacity-80 transition-opacity px-3.5 py-2 rounded-full">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+                <span class="text-sm text-muted-foreground">Email</span>
+              </a>
+            </div>
+            <p class="text-sm text-muted-foreground">© 2026 Facundo Tomasella · Buenos Aires, Argentina</p>
+          </section>
+        </footer>
       </div>
-    </footer>
-  </main>
+    </main>
+  </div>
 
   <script>
     const BASE = document.body.dataset.base || './';
@@ -133,8 +150,9 @@
         el.innerHTML = items.map((p) => {
           const net = (p.network || '').toLowerCase();
           const img = p.image ? esc(p.image) : '';
-          const thumb = img ? `<img src="${img}" alt="" class="h-40 w-full rounded-t-2xl object-cover" loading="lazy" />` : '';
-          return `<a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-2xl border border-[#262626] bg-[#141414] transition-colors hover:bg-[#1A1A1A]">${thumb}<div class="p-5"><p class="text-sm leading-relaxed text-[#A3A3A3] line-clamp-3">${esc(p.text)}</p></div></a>`;
+          const thumb = img ? `<img src="${img}" alt="" class="absolute -inset-px w-[calc(100%+2px)] h-[calc(100%+2px)] object-cover brightness-[.8]" loading="lazy"/>` : `<div class="absolute inset-0 bg-card" aria-hidden="true"></div>`;
+          const badge = net ? `<div class="absolute bottom-2 left-2 flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-sm px-2 py-0.5"><span class="text-xs text-white">${net === 'x' ? 'X' : net}</span></div>` : '';
+          return `<div class="flex flex-col gap-2 w-64 flex-shrink-0 sm:w-auto"><a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" class="relative block w-full overflow-hidden rounded-2xl bg-card hover:opacity-80 transition-opacity" style="padding-top:56.25%">${thumb}${badge}</a><p class="text-xs text-muted-foreground truncate">${esc(p.text)}</p></div>`;
         }).join('');
       } catch {}
     }
