@@ -110,14 +110,22 @@ async function fetchSource(source) {
   return looksJson ? parseJson(JSON.parse(trimmed), network) : parseXml(trimmed, network, url);
 }
 
+async function loadFallback() {
+  try {
+    const data = JSON.parse(await readFile(join(root, 'data/posts.fallback.json'), 'utf8'));
+    return Array.isArray(data.posts) ? data.posts : [];
+  } catch {
+    return [];
+  }
+}
+
 async function main() {
   const config = JSON.parse(await readFile(join(root, 'feed.config.json'), 'utf8'));
   const maxItems = Number(config.maxItems) || 30;
 
   const enabled = (config.sources || []).filter((s) => isConfigured(s.url));
   if (enabled.length === 0) {
-    console.log('No hay fuentes configuradas en feed.config.json (todas en [TODO]). No se modifica data/posts.json.');
-    return;
+    console.log('No hay fuentes configuradas en feed.config.json (todas en [TODO]): se usará el respaldo.');
   }
 
   const all = [];
@@ -132,7 +140,7 @@ async function main() {
   }
 
   const seen = new Set();
-  const posts = all
+  let posts = all
     .filter((p) => p.text && p.url)
     .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
     .filter((p) => {
@@ -142,19 +150,27 @@ async function main() {
     })
     .slice(0, maxItems);
 
+  let origin = 'live';
   if (posts.length === 0) {
-    console.warn('No se obtuvieron publicaciones. data/posts.json queda sin cambios.');
+    posts = (await loadFallback()).slice(0, maxItems);
+    origin = 'fallback';
+    console.warn(`Sin publicaciones en vivo: se usa el respaldo (${posts.length} ítems).`);
+  }
+
+  if (posts.length === 0) {
+    console.warn('No hay publicaciones ni respaldo disponible. data/posts.json queda sin cambios.');
     return;
   }
 
   const output = {
     _comment: 'Generado automáticamente por scripts/build-feed.mjs (workflow update-feed.yml). No editar a mano: se sobrescribe.',
     generatedAt: new Date().toISOString(),
+    origin,
     posts,
   };
 
   await writeFile(join(root, 'data/posts.json'), JSON.stringify(output, null, 2) + '\n', 'utf8');
-  console.log(`OK: data/posts.json con ${posts.length} publicaciones.`);
+  console.log(`OK: data/posts.json con ${posts.length} publicaciones (origen: ${origin}).`);
 }
 
 main().catch((err) => {

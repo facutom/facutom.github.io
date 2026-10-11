@@ -1,0 +1,35 @@
+{
+  "_comment": "Respaldo estático del feed. Se usa automáticamente si data/posts.json falla o no tiene publicaciones (por ejemplo, si las fuentes RSS no están configuradas o están caídas). Podés editarlo a mano con tus publicaciones o tus posts destacados.",
+  "posts": [
+    {
+      "network": "x",
+      "date": "2026-10-08",
+      "text": "Estabilicé el pipeline de TradingChango: reintentos y deduplicación en la captura. Los precios históricos ya quedan consistentes entre corridas. [EJEMPLO]",
+      "url": "https://x.com/Facutom_"
+    },
+    {
+      "network": "linkedin",
+      "date": "2026-10-05",
+      "text": "En EscalaFast automatizamos la respuesta a leads por WhatsApp en menos de 60 segundos. Dejamos de perder consultas por demora. [EJEMPLO]",
+      "url": "https://www.linkedin.com/in/facundotomasella/"
+    },
+    {
+      "network": "x",
+      "date": "2026-09-29",
+      "text": "Playwright + Supabase para scrapear y normalizar precios de supermercados. Lo difícil no es scrapear, es normalizar. [EJEMPLO]",
+      "url": "https://x.com/Facutom_"
+    },
+    {
+      "network": "linkedin",
+      "date": "2026-09-22",
+      "text": "Un buen SLA es parte del producto, no una promesa de venta. 5 días hábiles para entregar una automatización. [EJEMPLO]",
+      "url": "https://www.linkedin.com/in/facundotomasella/"
+    },
+    {
+      "network": "x",
+      "date": "2026-09-15",
+      "text": "Construir en público: acá voy a ir documentando lo que construyo y aprendo. [EJEMPLO]",
+      "url": "https://x.com/Facutom_"
+    }
+  ]
+}

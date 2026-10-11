@@ -1,6 +1,7 @@
 {
-  "_comment": "Fuentes del feed unificado (X + LinkedIn). Completá 'url' con el feed RSS/Atom o JSON de cada red; el workflow .github/workflows/update-feed.yml los junta en data/posts.json. Para obtener las URLs, ver README o usar un generador de RSS (ej. rss.app). Dejá el [TODO] para omitir esa fuente.",
+  "_comment": "Fuentes del feed unificado (X + LinkedIn). Completá la 'url' de cada red con su feed RSS/Atom o JSON; el workflow .github/workflows/update-feed.yml los junta en data/posts.json (cada 6 h o manualmente). Dejá el [TODO] para omitir esa fuente. Si ninguna fuente responde, se usa data/posts.fallback.json.",
   "maxItems": 30,
+  "fallbackFile": "data/posts.fallback.json",
   "sources": [
     {
       "network": "x",

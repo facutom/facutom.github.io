@@ -1,5 +1,7 @@
 {
-  "_comment": "Última actividad / Posts. Agregá publicaciones copiando un objeto. Campos: network ('x' o 'linkedin'), date (YYYY-MM-DD), text (fragmento del contenido), url (enlace a la publicación). El orden del array es el orden de aparición; se muestran los primeros 5. Las entradas de abajo son EJEMPLOS: reemplazalas por tus publicaciones reales.",
+  "_comment": "Generado automáticamente por scripts/build-feed.mjs (workflow update-feed.yml). No editar a mano: se sobrescribe.",
+  "generatedAt": "2026-10-11T03:07:37.471Z",
+  "origin": "fallback",
   "posts": [
     {
       "network": "x",
