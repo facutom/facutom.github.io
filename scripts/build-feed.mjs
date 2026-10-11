@@ -140,6 +140,81 @@ async function loadFallback() {
   }
 }
 
+/**
+ * Visualizaciones (views) de X sin API ni token: se leen del HTML server-rendered
+ * de la página del post, donde viene `views:{count:"N"}` asociado al rest_id.
+ * Es gratis pero frágil; por eso solo se refresca cada VIEWS_REFRESH_HOURS horas
+ * y, mientras tanto, se reutilizan los valores ya guardados en data/posts.json.
+ */
+const VIEWS_REFRESH_HOURS = Number(process.env.VIEWS_REFRESH_HOURS) || 48;
+const X_ID = (p) => (String(p?.url || '').match(/status\/(\d+)/) || [])[1];
+
+function extractViews(html, id) {
+  const idRe = new RegExp(`rest_id:"${id}"`, 'g');
+  let best = null;
+  let m;
+  while ((m = idRe.exec(html))) {
+    const win = html.slice(m.index, m.index + 1500);
+    const v = win.match(/views:\$R\[\d+\]=\{count:"(\d+)"\}|views:\{count:"(\d+)"\}/);
+    if (!v) continue;
+    const n = Number(v[1] ?? v[2]);
+    if (Number.isFinite(n) && (best === null || n > best)) best = n;
+  }
+  return best;
+}
+
+async function fetchXViews(id) {
+  const res = await fetch(`https://x.com/i/status/${id}`, {
+    headers: {
+      'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
+      'accept-language': 'en-US,en;q=0.9',
+    },
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return extractViews(await res.text(), id);
+}
+
+async function readPrevious() {
+  try {
+    return JSON.parse(await readFile(join(root, 'data/posts.json'), 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+async function updateViews(posts) {
+  const prev = await readPrevious();
+  const prevViews = {};
+  for (const p of prev?.posts || []) {
+    if (typeof p.views === 'number') prevViews[p.url] = p.views;
+  }
+  const ageMs = prev?.viewsUpdatedAt ? Date.now() - Date.parse(prev.viewsUpdatedAt) : Infinity;
+  let out = posts.map((p) => (prevViews[p.url] !== undefined ? { ...p, views: prevViews[p.url] } : p));
+
+  if (ageMs <= VIEWS_REFRESH_HOURS * 3600e3) {
+    console.log(`- Views: sin refrescar (hace ${(ageMs / 3600e3).toFixed(1)} h; umbral ${VIEWS_REFRESH_HOURS} h).`);
+    return { posts: out, viewsUpdatedAt: prev.viewsUpdatedAt };
+  }
+
+  const targets = out.filter((p) => p.network === 'x' && X_ID(p));
+  let ok = 0;
+  for (const p of targets) {
+    const id = X_ID(p);
+    try {
+      const v = await fetchXViews(id);
+      if (typeof v === 'number') {
+        p.views = v;
+        ok++;
+      }
+    } catch (err) {
+      console.warn(`! Views ${id}: ${err.message}`);
+    }
+    await new Promise((r) => setTimeout(r, 400));
+  }
+  console.log(`- Views: actualizadas ${ok}/${targets.length} posts de X.`);
+  return { posts: out, viewsUpdatedAt: ok > 0 ? new Date().toISOString() : prev?.viewsUpdatedAt || null };
+}
+
 async function main() {
   const config = JSON.parse(await readFile(join(root, 'feed.config.json'), 'utf8'));
   const maxItems = Number(config.maxItems) || 30;
@@ -183,12 +258,16 @@ async function main() {
     return;
   }
 
+  const viewed = await updateViews(posts);
+  posts = viewed.posts;
+
   const output = {
     _comment: 'Generado automáticamente por scripts/build-feed.mjs (workflow update-feed.yml). No editar a mano: se sobrescribe.',
     generatedAt: new Date().toISOString(),
     origin,
     posts,
   };
+  if (viewed.viewsUpdatedAt) output.viewsUpdatedAt = viewed.viewsUpdatedAt;
 
   await writeFile(join(root, 'data/posts.json'), JSON.stringify(output, null, 2) + '\n', 'utf8');
   console.log(`OK: data/posts.json con ${posts.length} publicaciones (origen: ${origin}).`);
