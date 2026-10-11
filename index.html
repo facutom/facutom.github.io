@@ -61,6 +61,9 @@
                 <a href="mailto:Facu_tomasella@hotmail.com" class="flex items-center justify-center bg-card hover:opacity-80 transition-opacity h-9 w-9 rounded-full" aria-label="Email">
                   <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
                 </a>
+                <button type="button" onclick="sharePage()" class="flex items-center justify-center bg-card hover:opacity-80 transition-opacity h-9 w-9 rounded-full cursor-pointer" aria-label="Compartir">
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                </button>
               </div>
             </div>
             <p class="text-lg sm:text-lg text-muted-foreground mt-2">Desarrollo productos, pruebo ideas y busco formas de convertir problemas reales en oportunidades comerciales. Comparto lo que construyo, lo que aprendo y lo que funciona en el camino.</p>
@@ -104,7 +107,7 @@
           <!-- Contact -->
           <section class="flex flex-col gap-6">
             <p class="text-xs uppercase tracking-wider text-muted-foreground opacity-60">Hablemos</p>
-            <p class="text-muted-foreground">Si algo de lo que construyo te resulta útil, o querés intercambiar ideas sobre negocios, tecnología o producto, escribime.</p>
+            <p class="text-muted-foreground">Si algo de lo que construyo te resulta útil, o querés <span class="text-white font-medium underline underline-offset-4 decoration-neutral-500">intercambiar ideas sobre negocios, tecnología o producto, escribime</span>.</p>
             <div class="flex flex-wrap gap-2">
               <a href="mailto:Facu_tomasella@hotmail.com" class="flex items-center gap-2 bg-card hover:opacity-80 transition-opacity px-3.5 py-2 rounded-full">
                 <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
@@ -134,6 +137,18 @@
   <script>
     const BASE = document.body.dataset.base || './';
     const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const ICONS = {
+      x: '<svg class="h-3 w-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.45-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/></svg>',
+      linkedin: '<svg class="h-3 w-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065Zm1.782 13.019H3.555V9h3.564v11.452ZM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003Z"/></svg>',
+    };
+    async function sharePage() {
+      const url = location.href;
+      try {
+        if (navigator.share) { await navigator.share({ title: 'Facundo Tomasella', text: 'Facundo Tomasella', url }); return; }
+        await navigator.clipboard.writeText(url);
+        alert('Enlace copiado');
+      } catch {}
+    }
     async function loadJSON(path) {
       const res = await fetch(BASE + path, { cache: 'no-cache' });
       if (!res.ok) throw new Error(res.status);
@@ -159,7 +174,7 @@
           const net = (p.network || '').toLowerCase();
           const img = p.image ? esc(p.image) : '';
           const thumb = img ? `<img src="${img}" alt="" class="absolute -inset-px w-[calc(100%+2px)] h-[calc(100%+2px)] object-cover brightness-[.8]" loading="lazy"/>` : `<div class="absolute inset-0 bg-card" aria-hidden="true"></div>`;
-          const badge = net ? `<div class="absolute bottom-2 left-2 flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-sm px-2 py-0.5"><span class="text-xs text-white">${net === 'x' ? 'X' : net}</span></div>` : '';
+          const badge = net ? `<div class="absolute bottom-2 left-2 flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-sm px-2 py-0.5"><span class="text-white">${ICONS[net] || `<span class="text-xs">${esc(net)}</span>`}</span></div>` : '';
           return `<div class="flex flex-col gap-2 w-64 flex-shrink-0 sm:w-auto"><a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" class="relative block w-full overflow-hidden rounded-2xl bg-card hover:opacity-80 transition-opacity" style="padding-top:56.25%">${thumb}${badge}</a><p class="text-xs text-muted-foreground truncate">${esc(p.text)}</p></div>`;
         }).join('');
       } catch {}
