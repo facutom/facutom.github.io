@@ -1,6 +1,6 @@
 {
   "_comment": "Generado automáticamente por scripts/build-feed.mjs (workflow update-feed.yml). No editar a mano: se sobrescribe.",
-  "generatedAt": "2026-10-13T13:51:05.473Z",
+  "generatedAt": "2026-10-13T22:26:41.114Z",
   "origin": "live",
   "posts": [
     {
@@ -8,8 +8,8 @@
       "date": "2026-06-08",
       "text": "Armé mi huevsite en huevsite.io — el portfolio para builders 🇦🇷 👉 huevsite.io/facutom",
       "url": "https://x.com/Facutom_/status/2063969428497129742",
-      "image": "https://pbs.twimg.com/card_img/2107472776705482753/N5ybilhS?format=jpg&name=800x419",
-      "views": 55
+      "image": "https://pbs.twimg.com/card_img/2107472776705482753/pRpd8-Ay?format=jpg&name=800x419",
+      "views": 58
     },
     {
       "network": "x",
@@ -17,7 +17,7 @@
       "text": "Shippeando hoy en @crecimientoar en la @monad_dev, fueron 6 horas armando producto, equipo, y vendiendo la idea. #hackaton",
       "url": "https://x.com/Facutom_/status/2060857379931967738",
       "image": "https://pbs.twimg.com/media/HJmi3WzXgAMTg5M.jpg",
-      "views": 781
+      "views": 782
     },
     {
       "network": "x",
@@ -25,8 +25,8 @@
       "text": "Hoy en la hackaton Blitz de @monad_dev en @crecimientoar armamos MediPass: el pasaporte médico descentralizado para nómadas digitales. medipass-phi.vercel.app/",
       "url": "https://x.com/Facutom_/status/2060823407084621956",
       "image": "https://pbs.twimg.com/media/HJmDS8MWMAAk0pq.jpg",
-      "views": 714
+      "views": 716
     }
   ],
-  "viewsUpdatedAt": "2026-10-11T16:29:11.808Z"
+  "viewsUpdatedAt": "2026-10-13T22:26:41.114Z"
 }
