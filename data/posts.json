@@ -1,14 +1,13 @@
 {
   "_comment": "Generado automáticamente por scripts/build-feed.mjs (workflow update-feed.yml). No editar a mano: se sobrescribe.",
-  "generatedAt": "2026-10-17T20:20:13.290Z",
-  "origin": "live",
+  "generatedAt": "2026-10-18T03:46:22.753Z",
+  "origin": "fallback",
   "posts": [
     {
       "network": "x",
       "date": "2026-06-08",
       "text": "Armé mi huevsite en huevsite.io — el portfolio para builders 🇦🇷 👉 huevsite.io/facutom",
       "url": "https://x.com/Facutom_/status/2063969428497129742",
-      "image": "https://pbs.twimg.com/card_img/2110706292222259201/tOj_Unli?format=jpg&name=800x419",
       "views": 58
     },
     {
@@ -16,16 +15,26 @@
       "date": "2026-05-30",
       "text": "Shippeando hoy en @crecimientoar en la @monad_dev, fueron 6 horas armando producto, equipo, y vendiendo la idea. #hackaton",
       "url": "https://x.com/Facutom_/status/2060857379931967738",
-      "image": "https://pbs.twimg.com/media/HJmi3WzXgAMTg5M.jpg",
       "views": 782
     },
     {
       "network": "x",
       "date": "2026-05-30",
-      "text": "Hoy en la hackaton Blitz de @monad_dev en @crecimientoar armamos MediPass: el pasaporte médico descentralizado para nómadas digitales. medipass-phi.vercel.app/",
+      "text": "Hoy en la hackaton Blitz de @monad_dev en @crecimientoar armamos MediPass: el pasaporte médico descentralizado para nómadas digitales.",
       "url": "https://x.com/Facutom_/status/2060823407084621956",
-      "image": "https://pbs.twimg.com/media/HJmDS8MWMAAk0pq.jpg",
       "views": 716
+    },
+    {
+      "network": "x",
+      "date": "2026-05-15",
+      "text": "Estabilicé el pipeline de TradingChango: reintentos y deduplicación en la captura. Los precios históricos ya quedan consistentes entre corridas. [EJEMPLO]",
+      "url": "https://x.com/Facutom_"
+    },
+    {
+      "network": "x",
+      "date": "2026-04-20",
+      "text": "Construir en público: acá voy a ir documentando lo que construyo y aprendo. [EJEMPLO]",
+      "url": "https://x.com/Facutom_"
     }
   ],
   "viewsUpdatedAt": "2026-10-13T22:26:41.114Z"
